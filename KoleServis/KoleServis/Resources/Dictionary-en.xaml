@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    
+    <System:String x:Key="Login">LOGIN</System:String>
+    <System:String x:Key="Username">Username</System:String>
+    <System:String x:Key="Password">Password</System:String>
+    <System:String x:Key="LoginSmall">Login</System:String>
+    <System:String x:Key="Warrning">Incorrect username or password</System:String>
+
+    <System:String x:Key="Bills">Bills</System:String>
+    <System:String x:Key="Workers">Workers</System:String>
+    <System:String x:Key="Services">Services</System:String>
+    <System:String x:Key="Items">Items</System:String>
+    <System:String x:Key="Settings">Settings</System:String>
+
+    <System:String x:Key="Customer">Customer</System:String>
+    <System:String x:Key="Date">Date</System:String>
+    <System:String x:Key="Price">Price</System:String>
+    <System:String x:Key="SelectedBill">Selected bill</System:String>
+    <System:String x:Key="Title">Title</System:String>
+    <System:String x:Key="TitleName">Title</System:String>
+
+    <System:String x:Key="Quantity">Quantity</System:String>
+    <System:String x:Key="Category">Category</System:String>
+    <System:String x:Key="UpdateImage">Update image</System:String>
+    <System:String x:Key="Add">Add</System:String>
+    <System:String x:Key="Update">Update</System:String>
+    <System:String x:Key="Delete">Delete</System:String>
+    <System:String x:Key="Clear">Clear</System:String>
+    <System:String x:Key="AddedBy">Added by</System:String>
+    <System:String x:Key="Name">Name</System:String>
+    <System:String x:Key="Surname">Surname</System:String>
+    <System:String x:Key="ConfirmPassword">Confirm password</System:String>
+    <System:String x:Key="Color">Color</System:String>
+    <System:String x:Key="Font">Font</System:String>
+    <System:String x:Key="Language">Language</System:String>
+    
+    <System:String x:Key="Bold_">Bold</System:String>
+    <System:String x:Key="Italic_">Italic</System:String>
+    <System:String x:Key="Reset">Reset</System:String>
+    <System:String x:Key="CreateBills">Create bill</System:String>
+
+    <System:String x:Key="Search">Search</System:String>
+    <System:String x:Key="OverallPrice">Overall price</System:String>
+    <System:String x:Key="SelectedCustomer">Selected Customer</System:String>
+    <System:String x:Key="CreateBill">Create bill</System:String>
+    <System:String x:Key="Print">Print</System:String>
+
+
+</ResourceDictionary>

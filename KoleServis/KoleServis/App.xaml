@@ -1,0 +1,70 @@
+﻿<Application x:Class="KoleServis.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:KoleServis"
+             xmlns:viewModel="clr-namespace:KoleServis.MVVM.ViewModel"
+             xmlns:components="clr-namespace:KoleServis.MVVM.View.Components"
+             xmlns:view="clr-namespace:KoleServis.MVVM.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" 
+                                     PrimaryColor="Orange" 
+                                     SecondaryColor="Orange" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
+                <ResourceDictionary Source="Resources/Dictionary-en.xaml"/>
+                <ResourceDictionary Source="Resources/Fonts-arial-dic.xaml"/>
+                <ResourceDictionary Source="Resources/FontWeight/FontWeight-normal-dic.xaml"/>
+                <ResourceDictionary Source="Resources/FontStyle/FontStyle-normal-dic.xaml"/>
+                
+                <ResourceDictionary Source="Resources/Colors/Colors-orange-dic.xaml"/>
+                
+                <ResourceDictionary Source="Resources/Colors/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Colors/ChipStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Colors/DataGridStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Colors/TextStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Colors/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Colors/RadioButtonStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Colors/ToggleButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:BillsViewModel}">
+                <view:BillsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=viewModel:SettingsViewModel}">
+                <view:SettingsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=viewModel:LoginViewModel}">
+                <view:Login/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:ManagerMainViewModel}">
+                <view:ManagerMainView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:ServicesViewModel}">
+                <view:ServicesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:WorkersViewModel}">
+                <view:WorkersView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:WorkerMainViewModel}">
+                <view:WorkerMainView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:CreateBillViewModel}">
+                <view:CreateBillView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:ItemsViewModel}">
+                <view:ItemsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:ItemComponentViewModel}">
+                <components:ItemComponent/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:BillComponentViewModel}">
+                <components:BillComponent/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

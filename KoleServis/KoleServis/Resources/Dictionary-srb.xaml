@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <System:String x:Key="Login">PRIJAVA</System:String>
+    <System:String x:Key="Username">Korisnicko ime</System:String>
+    <System:String x:Key="Password">Lozinka</System:String>
+    <System:String x:Key="LoginSmall">Prijavi se</System:String>
+    <System:String x:Key="Warrning">Netacno korisnicko ime ili lozinka</System:String>
+
+    <System:String x:Key="Bills">Racuni</System:String>
+    <System:String x:Key="Workers">Radnici</System:String>
+    <System:String x:Key="Services">Usluge</System:String>
+    <System:String x:Key="Items">Dijelovi</System:String>
+    <System:String x:Key="Settings">Podesavanja</System:String>
+
+    <System:String x:Key="Customer">Klijent</System:String>
+    <System:String x:Key="Date">Datum</System:String>
+    <System:String x:Key="SelectedBill">Odabrani racun</System:String>
+    <System:String x:Key="Price">Cijena</System:String>
+    <System:String x:Key="Title">Naziv</System:String>
+    <System:String x:Key="TitleName">Naziv</System:String>
+
+    <System:String x:Key="Quantity">Kolicina</System:String>
+    <System:String x:Key="Category">Kategorija</System:String>
+    <System:String x:Key="UpdateImage">Azuriraj sliku</System:String>
+    <System:String x:Key="Add">Dodaj</System:String>
+    <System:String x:Key="Update">Azuriraj</System:String>
+    <System:String x:Key="Delete">Obrisi nalog</System:String>
+    <System:String x:Key="Clear">Obrisi podatke</System:String>
+    <System:String x:Key="AddedBy">Dodao</System:String>
+    <System:String x:Key="Name">Ime</System:String>
+    <System:String x:Key="Surname">Prezime</System:String>
+    <System:String x:Key="ConfirmPassword">Potvrdi lozinku</System:String>
+    <System:String x:Key="Color">Boja</System:String>
+    <System:String x:Key="Font">Font</System:String>
+    <System:String x:Key="Language">Jezik</System:String>
+    <System:String x:Key="Bold_">Bold</System:String>
+    <System:String x:Key="Italic_">Italic</System:String>
+
+    <System:String x:Key="Reset">Ponisti</System:String>
+    <System:String x:Key="CreateBills">Kreiraj racun</System:String>
+
+    <System:String x:Key="Search">Pretraga</System:String>
+    <System:String x:Key="OverallPrice">Ukupna cijena</System:String>
+    <System:String x:Key="SelectedCustomer">Odabrani kupac</System:String>
+    <System:String x:Key="CreateBill">Kreiraj racun</System:String>
+    <System:String x:Key="Print">Printaj</System:String>
+
+</ResourceDictionary>

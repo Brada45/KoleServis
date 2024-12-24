@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="KoleServis.MVVM.View.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KoleServis.MVVM.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+            mc:Ignorable="d" 
+            d:DesignHeight="400" d:DesignWidth="1300" Background="white">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBox Text="{Binding Name}"
+                materialDesign:HintAssist.Hint="{DynamicResource Name}"
+                materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+                materialDesign:HintAssist.FloatingOffset="0,-20"
+                BorderThickness="0 0 0 1.5"
+                VerticalAlignment="Top"
+                Margin="100,50,100,10" />
+                <TextBox Text="{Binding Surname}"
+                materialDesign:HintAssist.Hint="{DynamicResource Surname}"
+                materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+                materialDesign:HintAssist.FloatingOffset="0,-20"
+                BorderThickness="0 0 0 1.5"
+                VerticalAlignment="Center"
+                Margin="100,10,100,10" />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox Text="{Binding Password}" IsEnabled="{Binding EditUsername}"
+                materialDesign:HintAssist.Hint="{DynamicResource Password}"
+                materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+                materialDesign:HintAssist.FloatingOffset="0,-20"
+                BorderThickness="0 0 0 1.5"
+                VerticalAlignment="Top"
+                Margin="100,50,100,10" />
+
+                <TextBox Text="{Binding ConfirmPassword}" IsEnabled="{Binding EditUsername}"
+                materialDesign:HintAssist.Hint="{DynamicResource ConfirmPassword}"
+                materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+                materialDesign:HintAssist.FloatingOffset="0,-20"
+                BorderThickness="0 0 0 1.5"
+                VerticalAlignment="Center"
+                Margin="100,10,100,10" />
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <Grid>
+                    <Button materialDesign:ButtonAssist.CornerRadius="25"
+             Command="{Binding UpdateCommand}"
+               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+               Style="{StaticResource CommandButton}"
+             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+               ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                  Margin="50,60,50,0">
+                        <TextBlock Text="{DynamicResource Update}" />
+                    </Button>
+                </Grid>
+                <Grid>
+                    <Button materialDesign:ButtonAssist.CornerRadius="25"
+            Command="{Binding ClearCommand}"
+          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+          Style="{StaticResource CommandButton}"
+            materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+          ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+             Margin="50,20,50,0">
+                        <TextBlock Text="{DynamicResource Reset}" />
+                    </Button>
+
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="{DynamicResource Color}" HorizontalAlignment="Center" FontSize="14" Margin="0,10,0,0"/>
+                <ItemsControl ItemsSource="{Binding RadioItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <RadioButton
+                    Margin="4"
+                    Content="{Binding Name}"
+                    IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                GroupName="ColorGroup"
+                     />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{DynamicResource Font}" HorizontalAlignment="Center" FontSize="14" Margin="0,10,0,0"/>
+                <ItemsControl ItemsSource="{Binding RadioFonts}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <RadioButton
+                             Margin="4"
+                             Content="{Binding Name}"
+                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                            GroupName="FontGroup"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="0" Grid.Row="0">
+                        <TextBlock Text="Bold" FontSize="14"   HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                        <TextBlock Text="Italic" FontSize="14" Margin="5"   HorizontalAlignment="Center"  VerticalAlignment="Center" />
+
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="0">
+                        <ToggleButton
+                        IsChecked="{Binding BoldChecked}"
+                        />
+                        <ToggleButton
+                        IsChecked="{Binding ItalicChecked}"
+                        />
+                    </StackPanel>
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <TextBlock Text="{DynamicResource Language}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <ItemsControl ItemsSource="{Binding RadioLanguage}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <RadioButton
+                                        Margin="4"
+                                        Style="{StaticResource UnderChecked}"
+                                        Content="{Binding Name}"
+                                        IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                        GroupName="LanguageGroup"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

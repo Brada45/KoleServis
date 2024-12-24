@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="KoleServis.MVVM.View.ItemsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KoleServis.MVVM.View"
+             xmlns:component="clr-namespace:KoleServis.MVVM.View.Components"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="600" d:DesignWidth="1300" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListBox ItemsSource="{Binding Dijelovi}" SelectedItem="{Binding SelectedItem}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <component:ItemComponent DataContext="{Binding}" Margin="5" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                
+                <TextBox Text="{Binding Title}"
+                materialDesign:HintAssist.Hint="{DynamicResource TitleName}"
+                materialDesign:HintAssist.FloatingOffset="0,-20"
+                BorderThickness="0 0 0 1.5"
+                VerticalAlignment="Center"
+                Margin="100,10,60,10" />
+
+                <TextBox Text="{Binding Price}"
+            materialDesign:HintAssist.Hint="{DynamicResource Price}"
+            materialDesign:HintAssist.FloatingOffset="0,-20"
+            BorderThickness="0 0 0 1.5"
+            VerticalAlignment="Center"
+            Margin="100,10,60,10" />
+                <TextBox Text="{Binding Quantity}"
+                    materialDesign:HintAssist.Hint="{DynamicResource Quantity}"
+                    materialDesign:HintAssist.FloatingOffset="0,-20"
+                    BorderThickness="0 0 0 1.5"
+                    VerticalAlignment="Center"
+                    Margin="100,10,60,10" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{DynamicResource Category}"  Margin="100,10,0,10"/>
+                    <ComboBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Text="{DynamicResource Category}"  ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Width="140">
+                          <ComboBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                              <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                          </ComboBox.ItemsPanel>
+                    </ComboBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding SelectedImage}"
+                        Grid.Column="1"
+                        Stretch="Uniform"
+                        MaxWidth="200"
+                        MaxHeight="150"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="5" />
+                    <Button materialDesign:ButtonAssist.CornerRadius="25" Grid.Column="0"
+                            Command="{Binding UpdateImageCommand}"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource CommandButton}"
+                            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                            Margin="50,0,50,0" 
+                            >
+                        <TextBlock Text="{DynamicResource UpdateImage}"   />
+                    </Button>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3">
+                <Grid>
+                    <Button materialDesign:ButtonAssist.CornerRadius="25"
+            Command="{Binding AddCommand}"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+         Style="{StaticResource CommandButton}"
+                            
+         ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+            Margin="100,0,100,0">
+                        <TextBlock Text="{DynamicResource Add}" />
+                    </Button>
+                </Grid>
+                <Grid>
+                    <Button materialDesign:ButtonAssist.CornerRadius="25"
+            Command="{Binding UpdateCommand}"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource CommandButton}"
+              ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                            
+                 Margin="100,0,100,0">
+                        <TextBlock Text="{DynamicResource Update}" />
+                    </Button>
+                </Grid>
+                <Grid>
+                    <Button materialDesign:ButtonAssist.CornerRadius="25"
+            Command="{Binding DeleteCommand}"
+             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+             Style="{StaticResource CommandButton}"
+             ToolTip="MaterialDesignRaisedDarkButton with Round Corners" 
+                Margin="100,0,100,0">
+                        <TextBlock Text="{DynamicResource Delete}" />
+                    </Button>
+
+                </Grid>
+                <Grid>
+                    <Button materialDesign:ButtonAssist.CornerRadius="25"
+            Command="{Binding ClearCommand}"
+          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+          Style="{StaticResource CommandButton}"
+          ToolTip="MaterialDesignRaisedDarkButton with Round Corners" 
+             Margin="100,0,100,0">
+                        <TextBlock Text="{DynamicResource Clear}" />
+                    </Button>
+
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

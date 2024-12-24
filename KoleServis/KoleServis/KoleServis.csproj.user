@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="MVVM\View\BillsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\Components\BillComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\Components\ItemComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\CreateBillView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\ItemsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\ManagerMainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\ServicesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\SettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\WorkerMainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\WorkersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MVVM\View\BillsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\Components\BillComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\Components\ItemComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\CreateBillView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\ItemsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\ManagerMainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\ServicesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\SettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\WorkerMainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\WorkersView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\ChipStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\Colors-blue-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\Colors-gray-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\Colors-orange-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\DataGridStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\RadioButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\TextStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\ToggleButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Dictionary-en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Dictionary-srb.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Fonts-arial-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Fonts-courier-new-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Fonts-times-new-roman-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\FontStyle\FontStyle-italic-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\FontStyle\FontStyle-normal-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\FontWeight\FontWeight-bold-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\FontWeight\FontWeight-normal-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

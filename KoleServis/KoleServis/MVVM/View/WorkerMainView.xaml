@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="KoleServis.MVVM.View.WorkerMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KoleServis.MVVM.View"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0"  Background="{DynamicResource GridColor}">
+            <materialDesign:Chip
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Left"
+                Content="{Binding Ime}" 
+                Icon="{Binding Letter}" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel>
+                    <Button
+                         Command="{Binding Path=NavigateToBillsCommand}"
+                        Content="{DynamicResource CreateBills}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
+                    />
+                    <Button
+                        Command="{Binding NavigateToSettingsViewCommand}"
+                        Content="{DynamicResource Settings}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
+                        
+                    />
+
+                </StackPanel>
+                <ToggleButton 
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    IsChecked="{Binding IsToggled, Mode=TwoWay}" 
+                    Command="{Binding ChangeLanguageCommand}" 
+                    Margin="0,0,10,2">
+                    <Image>
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <!-- Default slika -->
+                                <Setter Property="Source" Value="Resources/serbian-flag.png"  />
+                                <Style.Triggers>
+                                    <!-- Promeni sliku kada je ToggleButton pritisnut -->
+                                    <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType=ToggleButton}}" Value="True">
+                                        <Setter Property="Source" Value="Resources/great-britain-flag.png" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </ToggleButton>
+            </Grid>
+            <ContentControl Grid.Column="1" Content="{Binding Path=Navigation.CurrentViewMain}"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -210,7 +210,6 @@ public partial class HcitableContext : DbContext
             entity.HasIndex(e => e.RadnjaIdRadnja, "fk_Racun_Radnja1_idx");
 
             entity.Property(e => e.IdRacun)
-                .ValueGeneratedNever()
                 .HasColumnType("int(11)")
                 .HasColumnName("id_racun");
             entity.Property(e => e.Cijena)

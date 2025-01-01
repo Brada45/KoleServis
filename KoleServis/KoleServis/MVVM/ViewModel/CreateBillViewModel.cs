@@ -179,7 +179,6 @@ namespace KoleServis.MVVM.ViewModel
             {
                 _searchItem = value;
                 OnPropertyChanged();
-                AddToBill();
             }
         }
 
@@ -247,7 +246,51 @@ namespace KoleServis.MVVM.ViewModel
         }
         public void Create()
         {
+            Racun racun = null;
+            if (ItemsBill.Count() != 0 && !SelectedDate.ToString().Equals("") && !SelectedTime.ToString().Equals(""))
+            {
+                string dateTimeString = SelectedDate?.ToString("yyyy-MM-dd") + " " + SelectedTime?.ToString(@"hh\:mm\:ss");
+                DateTime.TryParseExact(
+                    dateTimeString,
+                    "yyyy-MM-dd HH:mm:ss", // Očekivani format
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None,
+                    out DateTime result);
+                racun = new Racun { Cijena =(Decimal)PriceOver,Datum=result, KupacIdKupac = SelectedCustomer != null?SelectedCustomer.IdKupac:null, RadnikOsobaKorisnickoIme="KoleMajstor",RadnjaIdRadnja=1.ToString()};
+            }
+            if (racun != null)
+            {
+                using(var context=new HcitableContext())
+                {
+                    context.Racuns.Add(racun);
+                    context.SaveChanges();
+                    SaveItems(racun);
+                }
+            }
 
+        }
+
+        public void SaveItems(Racun racun)
+        {
+            using (var context = new HcitableContext())
+            {
+                foreach (ItemComponentViewModel items in ItemsBill)
+                {
+                    if (items.IsDio == true)
+                    {
+                        StavkaDio item = new StavkaDio { Kolicina = items.Kolicina, DioIdDio = items.Id, CijenaKomad = Decimal.Parse(items.Cijena), CijenaUkupno = (Decimal)items.UkupnaCijena, RacunIdRacun = racun.IdRacun };
+                        context.StavkaDios.Add(item);
+                        context.SaveChanges();
+                    }
+                    else if (items.IsDio == false)
+                    {
+                        //TODO zamijeniti nalog da bude stvarni nalog
+                        StavkaUsluga service = new StavkaUsluga { UslugaIdUsluga = items.Id, Kolicina = items.Kolicina, CijenaKomad = Decimal.Parse(items.Cijena), CijenaUkupno = (Decimal)items.UkupnaCijena, RadnikOsobaKorisnickoIme = "KoleMajstor", RacunIdRacun = racun.IdRacun };
+                        context.StavkaUslugas.Add(service);
+                        context.SaveChanges();
+                    }
+                }
+            }
         }
 
         public void Print()
@@ -371,8 +414,13 @@ namespace KoleServis.MVVM.ViewModel
         private void AddToBill()
         {
             
-            ItemComponentViewModel _item=new ItemComponentViewModel{ Naziv = SelectedItem.Naziv, Cijena = SelectedItem.Cijena, Kolicina = 1, UkupnaCijena = Double.Parse(SelectedItem.Cijena), MaxKolicina=SelectedItem.idKategorija!=0?SelectedItem.Kolicina:int.MaxValue };
-            ItemsBill.Add(_item);
+            ItemComponentViewModel _item=new ItemComponentViewModel{ Naziv = SelectedItem.Naziv,Id=SelectedItem.Id,IsDio=SelectedItem.IsDio, Cijena = SelectedItem.Cijena, Kolicina = 1, UkupnaCijena = Double.Parse(SelectedItem.Cijena), MaxKolicina=SelectedItem.idKategorija!=0?SelectedItem.Kolicina:int.MaxValue };
+            if(!ItemsBill.Contains(_item)) 
+                ItemsBill.Add(_item);
+            else
+            {
+                MessageBox.Show("This item is already at bill");
+            }
             RefreshPrice();
 
 
@@ -421,7 +469,7 @@ namespace KoleServis.MVVM.ViewModel
                 foreach (var item in items)
                 {
                     if (item.Obrisano == 0)
-                        OriginalDijelovi.Add(new ItemComponentViewModel { Id = item.IdUsluga, Naziv = item.Naziv, Cijena = item.Cijena.ToString(), Slika = arrayMechanic, idKategorija=0 });
+                        OriginalDijelovi.Add(new ItemComponentViewModel { Id = item.IdUsluga, Naziv = item.Naziv,IsDio=false, Cijena = item.Cijena.ToString(), Slika = arrayMechanic, idKategorija=0 });
 
                 }
             }

@@ -4746,11 +4746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\hci prvi\\KoleServis\\KoleServis\\KoleServis.csproj",
+      "projectUniqueName": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\KoleServis.csproj",
       "projectName": "KoleServis",
-      "projectPath": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\hci prvi\\KoleServis\\KoleServis\\KoleServis.csproj",
+      "projectPath": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\KoleServis.csproj",
       "packagesPath": "C:\\Users\\ksrdj.SRDJAN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\hci prvi\\KoleServis\\KoleServis\\obj\\",
+      "outputPath": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ksrdj.SRDJAN\\AppData\\Roaming\\NuGet\\NuGet.Config",

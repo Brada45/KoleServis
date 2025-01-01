@@ -25,6 +25,7 @@ public partial class Racun
     public virtual ICollection<StavkaDio> StavkaDios { get; set; } = new List<StavkaDio>();
 
     public virtual ICollection<StavkaUsluga> StavkaUslugas { get; set; } = new List<StavkaUsluga>();
+
     [NotMapped]
-    public virtual string Customer { get; set; } = string.Empty;
+    public string Customer {  get; set; }
 }

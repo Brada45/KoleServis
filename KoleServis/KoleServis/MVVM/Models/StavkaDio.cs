@@ -19,7 +19,6 @@ public partial class StavkaDio:IResource
     public virtual Dio DioIdDioNavigation { get; set; } = null!;
 
     public virtual Racun RacunIdRacunNavigation { get; set; } = null!;
-
     [NotMapped]
-    public virtual string Naziv { get; set; } = string.Empty;
+    public string Naziv { get; set; }
 }

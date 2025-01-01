@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace KoleServis.MVVM.Models;
 
-public partial class Usluga:IResource
+public partial class Usluga
 {
     public int IdUsluga { get; set; }
 

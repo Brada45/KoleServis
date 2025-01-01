@@ -62,26 +62,6 @@
                     />
 
                 </StackPanel>
-                <ToggleButton 
-                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                    IsChecked="{Binding IsToggled, Mode=TwoWay}" 
-                    Command="{Binding ChangeLanguageCommand}" 
-                    Margin="0,0,10,2">
-                    <Image>
-                        <Image.Style>
-                            <Style TargetType="Image">
-                                <!-- Default slika -->
-                                <Setter Property="Source" Value="Resources/serbian-flag.png"  />
-                                <Style.Triggers>
-                                    <!-- Promeni sliku kada je ToggleButton pritisnut -->
-                                    <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType=ToggleButton}}" Value="True">
-                                        <Setter Property="Source" Value="Resources/great-britain-flag.png" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
-                </ToggleButton>
             </Grid>
             <ContentControl Grid.Column="1" Content="{Binding Path=Navigation.CurrentViewMain}"/>
 

@@ -21,6 +21,7 @@ public partial class StavkaUsluga:IResource
     public virtual Racun RacunIdRacunNavigation { get; set; } = null!;
 
     public virtual Usluga UslugaIdUslugaNavigation { get; set; } = null!;
+
     [NotMapped]
-    public virtual string Naziv { get; set; }=string.Empty;
+    public string Naziv { get; set; }
 }

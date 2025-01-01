@@ -18,6 +18,7 @@ namespace KoleServis.MVVM.ViewModel
         public int MaxKolicina { get; set; }
         public int idKategorija {  get; set; }  
         public double UkupnaCijena {  get; set; }
+        public bool IsDio { get; set; } = true;
 
 
         public int TargetWidth { get; set; } =200; // Primer širine

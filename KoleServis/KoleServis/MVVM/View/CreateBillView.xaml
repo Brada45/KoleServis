@@ -66,8 +66,7 @@
                     </StackPanel>
                 </StackPanel>
                 <Grid Grid.Row="1">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <ListBox ItemsSource="{Binding Dijelovi}" SelectedItem="{Binding SelectedItem}">
+                    <ListBox ItemsSource="{Binding Dijelovi}" SelectedItem="{Binding SelectedItem}">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Horizontal" />
@@ -79,7 +78,6 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                    </ScrollViewer>
                 </Grid>
             </Grid>
         </Grid>
@@ -152,7 +150,8 @@
                     <DataGridTemplateColumn Width="0.15*" Header="{DynamicResource Delete}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Background="Transparent" BorderBrush="Transparent">
+                                <Button Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Background="Transparent"
+                                        Foreground="Black" BorderBrush="Transparent">
                                     <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Width="30" Height="30" />
                                 </Button>
                             </DataTemplate>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace KoleServis.MVVM.Models;
 
-public partial class Dio:IResource  
+public partial class Dio
 {
     public int IdDio { get; set; }
 

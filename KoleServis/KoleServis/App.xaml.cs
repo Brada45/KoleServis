@@ -58,8 +58,8 @@ namespace KoleServis
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
 
             var navigationService = _serviceProvider.GetRequiredService<INavigationService>();
-            //navigationService.NavigateTo<LoginViewModel>(false);
-            navigationService.NavigateTo<WorkerMainViewModel>(false);
+            navigationService.NavigateTo<LoginViewModel>(false);
+            //navigationService.NavigateTo<WorkerMainViewModel>(false);
 
             mainWindow.Show();
         }

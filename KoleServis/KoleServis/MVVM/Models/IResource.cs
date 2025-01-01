@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KoleServis.MVVM.Models
 {
-    public interface IResource
+    public class IResource
     {
     }
 }

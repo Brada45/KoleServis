@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KoleServis.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,13 @@ namespace KoleServis.MVVM.View
         public MainWindow()
         {
             InitializeComponent();
+            ChangeLanguageService.ChangeLanguage(Properties.Settings.Default.lang.Equals("True")?true:false);
+            ChangeBoldItalicService cbis=new ChangeBoldItalicService();
+            cbis.ChangeBold(Properties.Settings.Default.bold);
+            cbis.ChangeItalic(Properties.Settings.Default.italic);
+            new ChangeColorService().ChangeThemeColor(Properties.Settings.Default.color);
+            ChangeFontService.ChangeFont(Properties.Settings.Default.font);
+
         }
     }
 }

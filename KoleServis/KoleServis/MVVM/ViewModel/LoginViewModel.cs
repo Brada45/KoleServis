@@ -86,41 +86,56 @@ namespace KoleServis.MVVM.ViewModel
             _warrning = "white";
             _changeLanguageService = new ChangeLanguageService();
             IServiceCollection services = new ServiceCollection();
-            LoginCommand = new RelayCommand( execute => LoginCheck(),canExecute => true );
+            LoginCommand = new RelayCommand(async execute => await LoginCheck(),canExecute => true );
             ChangeLanguageCommand = new RelayCommand(execute => ChangeLanguageService.ChangeLanguage(IsToggled), canExecute => true);
+            string lang=Properties.Settings.Default.lang.ToString();
+            IsToggled=lang.Equals("True")?true:false;
             _base64Service = new Base64Service();
         }
 
-        private void LoginCheck()
+        private async Task LoginCheck()
         {
-
-            string passBase64=_base64Service.ConvertPassword(Password);
-            Boolean found = false;
-            Osoba person = null;
-            using (var context =new HcitableContext())
+            if (Password != null)
             {
-                var korisnici=context.Osobas.ToList();
-                
-                foreach (var korisnik in korisnici)
+                string passBase64 = _base64Service.ConvertPassword(Password);
+                Boolean found = false;
+                Osoba person = null;
+                await Task.Run(() =>
                 {
-                   if(passBase64.Equals(korisnik.Sifra) && Username.Equals(korisnik.KorisnickoIme)){
-                        found = true; 
-                        person= korisnik;
-                        break;
-                   }
+                    using (var context = new HcitableContext())
+                    {
+                        var korisnici = context.Osobas.ToList();
+
+                        foreach (var korisnik in korisnici)
+                        {
+                            if (passBase64.Equals(korisnik.Sifra) && korisnik.KorisnickoIme.Equals(Username))
+                            {
+                                found = true;
+                                person = korisnik;
+                                break;
+                            }
+                        }
+                    }
+                });
+
+                if (found)
+                {
+                    if (person.TipIdTip == 1)
+                    {
+                        SharedUser.CurrentPerson = person;
+                        Navigation.NavigateTo<WorkerMainViewModel>(false);
+                    }
+                    else
+                    {
+                        SharedUser.CurrentPerson = person;
+                        Navigation.NavigateTo<ManagerMainViewModel>(false);
+
+                    }
                 }
-            }
-            if (found)
-            {
-                if (person.TipIdTip == 1)
+                else
                 {
-                    SharedUser.CurrentPerson = person;
-                    Navigation.NavigateTo<WorkerMainViewModel>(false);
-                }else
-                {
-                    SharedUser.CurrentPerson=person;
-                    Navigation.NavigateTo<ManagerMainViewModel>(false);
-
+                    Username = "";
+                    WarrningColor = "red";
                 }
             }
             else

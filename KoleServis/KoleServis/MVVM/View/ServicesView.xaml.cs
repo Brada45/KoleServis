@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,24 @@ namespace KoleServis.MVVM.View
         public ServicesView()
         {
             InitializeComponent();
+        }
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            string pattern = @"^[0-9]*(\.[0-9]{0,2})?$";
+            Regex regex = new Regex(pattern);
+
+            e.Handled = !regex.IsMatch(e.Text);
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                textBox.Text = textBox.Text.Replace(" ", string.Empty);
+
+                textBox.SelectionStart = textBox.Text.Length;
+            }
         }
     }
 }

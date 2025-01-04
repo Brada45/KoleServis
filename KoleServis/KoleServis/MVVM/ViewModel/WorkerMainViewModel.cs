@@ -39,6 +39,9 @@ namespace KoleServis.MVVM.ViewModel
 
         public RelayCommand NavigateToBillsCommand { get; set; }
         public RelayCommand NavigateToSettingsViewCommand {  get; set; }
+        public bool IsCreateBillButonEnabled { get; set; } = false;
+        public bool IsSettingsButtonEnabled { get; set; } = true;
+
         private ChangeFontService _changeFontService;
         private ChangeBoldItalicService _changeBoldItalicService;
         private ChangeColorService _changeColorService;
@@ -98,9 +101,18 @@ namespace KoleServis.MVVM.ViewModel
                 _changeColorService.ChangeThemeColor(tema.Boja);
                 ChangeFontService.ChangeFont(tema.Font);
             }
-            NavigateToBillsCommand = new RelayCommand(o => { Navigation.NavigateTo<CreateBillViewModel>(true); }, o => true);
-            NavigateToSettingsViewCommand=new RelayCommand(o => { Navigation.NavigateTo<SettingsViewModel>(true); }, o => true);
+            NavigateToBillsCommand = new RelayCommand(o => { Navigation.NavigateTo<CreateBillViewModel>(true); SetButtonStates("Bills"); }, o => true);
+            NavigateToSettingsViewCommand=new RelayCommand(o => { Navigation.NavigateTo<SettingsViewModel>(true); SetButtonStates("Settings"); }, o => true);
+            Navigation.NavigateTo<CreateBillViewModel>(true);
 
+        }
+        private void SetButtonStates(string pressedButton)
+        {
+            IsCreateBillButonEnabled = pressedButton != "Bills";
+            IsSettingsButtonEnabled = pressedButton != "Settings";
+
+            OnPropertyChanged(nameof(IsCreateBillButonEnabled));
+            OnPropertyChanged(nameof(IsSettingsButtonEnabled));
         }
     }
 }

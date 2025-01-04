@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KoleServis.MVVM.View"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-            d:DesignHeight="450" d:DesignWidth="800" Background="White">
+            d:DesignHeight="700" d:DesignWidth="800" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
@@ -29,13 +29,13 @@
                     <Button
                          Command="{Binding Path=NavigateToBillsCommand}"
                         Content="{DynamicResource CreateBills}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        IsEnabled="{Binding IsCreateBillButonEnabled}"
                         ToolTip="MaterialDesignFlatSecondaryMidBgButton"
                     />
                     <Button
                         Command="{Binding NavigateToSettingsViewCommand}"
                         Content="{DynamicResource Settings}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        IsEnabled="{Binding IsSettingsButtonEnabled}"
                         ToolTip="MaterialDesignFlatSecondaryMidBgButton"
                         
                     />

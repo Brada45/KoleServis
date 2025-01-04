@@ -27,39 +27,45 @@
             <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <StackPanel>
                     <Button
-                         Command="{Binding Path=NavigateToBillsCommand}"
-                        Content="{DynamicResource Bills}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
-                    />
+    Command="{Binding NavigateToBillsCommand}"
+    Content="{DynamicResource Bills}"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Stretch"
+    ToolTip="Bills Button"
+    IsEnabled="{Binding IsBillsButtonEnabled}" />
+
                     <Button
-                        Command="{Binding NavigateToWorkersViewCommand}"
-                        Content="{DynamicResource Workers}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
-                        
-                    />
+    Command="{Binding NavigateToWorkersViewCommand}"
+    Content="{DynamicResource Workers}"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Stretch"
+    ToolTip="Workers Button"
+    IsEnabled="{Binding IsWorkersButtonEnabled}" />
+
                     <Button
-                        Command="{Binding NavigateToServicesViewCommand}"
-                        Content="{DynamicResource Services}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
-                        
-                    />
+    Command="{Binding NavigateToServicesViewCommand}"
+    Content="{DynamicResource Services}"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Stretch"
+    ToolTip="Services Button"
+    IsEnabled="{Binding IsServicesButtonEnabled}" />
+
                     <Button
-                        Command="{Binding NavigateToItemsViewCommand}"
-                        Content="{DynamicResource Items}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
-                        
-                    />
+    Command="{Binding NavigateToItemsViewCommand}"
+    Content="{DynamicResource Items}"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Stretch"
+    ToolTip="Items Button"
+    IsEnabled="{Binding IsItemsButtonEnabled}" />
+
                     <Button
-                        Command="{Binding NavigateToSettingsViewCommand}"
-                        Content="{DynamicResource Settings}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
-                        
-                    />
+    Command="{Binding NavigateToSettingsViewCommand}"
+    Content="{DynamicResource Settings}"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Stretch"
+    ToolTip="Settings Button"
+    IsEnabled="{Binding IsSettingsButtonEnabled}" />
+
 
                 </StackPanel>
             </Grid>

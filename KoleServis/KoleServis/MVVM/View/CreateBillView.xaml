@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KoleServis.MVVM.View"
+             xmlns:localViewModel="clr-namespace:KoleServis.MVVM.ViewModel"
              mc:Ignorable="d" 
              xmlns:component="clr-namespace:KoleServis.MVVM.View.Components"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="450" d:DesignWidth="1300" Background="White">
+             d:DesignHeight="550" d:DesignWidth="1300" Background="White">
     <Grid x:Name="CreateBillGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.6*"/>
@@ -136,7 +137,7 @@
 
 
                     <!-- Kolona za ukupnu cijenu (cijena * količina) -->
-                    <DataGridTextColumn Width="0.2*" Header="{DynamicResource OverallPrice}" Binding="{Binding UkupnaCijena}" >
+                    <DataGridTextColumn Width="0.2*" Header="{DynamicResource OverallPrice}" Binding="{Binding UkupnaCijena, StringFormat=F2}" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextWrapping" Value="Wrap" />
@@ -147,7 +148,7 @@
                     </DataGridTextColumn>
 
                     <!-- Kolona za dugme za brisanje -->
-                    <DataGridTemplateColumn Width="0.15*" Header="{DynamicResource Delete}">
+                    <DataGridTemplateColumn Width="0.15*" Header="{DynamicResource DeleteItem}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Background="Transparent"
@@ -164,12 +165,24 @@
                     <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="0.7*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <TextBox
-                        VerticalAlignment="Center"
-                        materialDesign:HintAssist.Hint="{DynamicResource OverallPrice}"
-                        Text="{Binding PriceOver}"
-                        />
+                <Grid Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="{DynamicResource BillNumber}"
+                         Text="{Binding Number,StringFormat=F2}" Padding="10"
+                         />
+                    <TextBox Grid.Column="1"
+                         VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                         IsReadOnly="True"
+                         materialDesign:HintAssist.Hint="{DynamicResource TotalPayment}"
+                         Text="{Binding PriceOver,StringFormat=F2}" Padding="10"
+                         />
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -197,6 +210,7 @@
                             <RowDefinition Height="0.8*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
+                            <TextBlock Text="{DynamicResource SelectDateAndTime}" MaxWidth="90" VerticalAlignment="Center" TextWrapping="Wrap"/>
                             <DatePicker Padding="10" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
                             <materialDesign:TimePicker Padding="10" Is24Hours="True" 
                            SelectedTime="{Binding SelectedTime, Mode=TwoWay}" />
@@ -226,6 +240,15 @@
                                        ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                           Margin="10,10,10,0">
                                     <TextBlock Text="{DynamicResource Print}" />
+                                </Button>
+                                <Button materialDesign:ButtonAssist.CornerRadius="25"
+                                     Command="{Binding PreviewCommand}"
+                                       IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                       Style="{StaticResource CommandButton}"
+                                     materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+                                       ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                          Margin="10,10,10,0">
+                                    <TextBlock Text="{DynamicResource Preview}" />
                                 </Button>
                             </StackPanel>
                         </Grid>

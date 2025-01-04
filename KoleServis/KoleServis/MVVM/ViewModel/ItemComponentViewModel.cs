@@ -21,9 +21,22 @@ namespace KoleServis.MVVM.ViewModel
         public bool IsDio { get; set; } = true;
 
 
-        public int TargetWidth { get; set; } =200; // Primer širine
-        public int TargetHeight { get; set; } =200; // Primer visine
+        public int TargetWidth { get; set; } =200;
+        public int TargetHeight { get; set; } =200; 
 
         public BitmapImage SlikaBitmap => ImageService.ByteArrayToImage(Slika, TargetWidth, TargetHeight);
+
+        public override bool Equals(object obj)
+        {
+            if (obj is not ItemComponentViewModel other)
+                return false;
+
+            return Id == other.Id && Naziv == other.Naziv;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Naziv);
+        }
     }
 }

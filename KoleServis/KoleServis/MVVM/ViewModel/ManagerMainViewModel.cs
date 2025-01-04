@@ -56,6 +56,17 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(Letter));
             }
         }
+        private string _selectedButton;
+
+    public string SelectedButton
+    {
+        get => _selectedButton;
+        set
+        {
+            _selectedButton = value;
+            OnPropertyChanged(nameof(SelectedButton));
+        }
+    }
 
         private Osoba Person { get; set; }
 
@@ -64,7 +75,12 @@ namespace KoleServis.MVVM.ViewModel
         public RelayCommand NavigateToWorkersViewCommand { get; set; }
         public RelayCommand NavigateToServicesViewCommand { get; set; }
         public RelayCommand NavigateToItemsViewCommand {  get; set; }
-        public RelayCommand ChangeLanguageCommand { get; }
+        public bool IsBillsButtonEnabled { get; set; } = false;
+        public bool IsWorkersButtonEnabled { get; set; } = true;
+        public bool IsServicesButtonEnabled { get; set; } = true;
+        public bool IsItemsButtonEnabled { get; set; } = true;
+        public bool IsSettingsButtonEnabled { get; set; } = true;
+
 
         private ChangeFontService _changeFontService;
         private ChangeBoldItalicService _changeBoldItalicService;
@@ -106,12 +122,52 @@ namespace KoleServis.MVVM.ViewModel
                 ChangeFontService.ChangeFont(tema.Font);
             }
 
-            NavigateToBillsCommand = new RelayCommand(o => { Navigation.NavigateTo<BillsViewModel>(true); }, o => true);
-            NavigateToSettingsViewCommand = new RelayCommand(o => { Navigation.NavigateTo<SettingsViewModel>(true); }, o => true);
-            NavigateToWorkersViewCommand = new RelayCommand(o => { Navigation.NavigateTo<WorkersViewModel>(true); }, o => true);
-            NavigateToServicesViewCommand = new RelayCommand(o => { Navigation.NavigateTo<ServicesViewModel>(true); }, o => true);
-            NavigateToItemsViewCommand=new RelayCommand(o => { Navigation.NavigateTo<ItemsViewModel>(true); }, o => true);
-            ChangeLanguageCommand=new RelayCommand(execute=>ChangeLanguageService.ChangeLanguage(IsToggled),o=>true);
+            NavigateToBillsCommand = new RelayCommand(o =>
+            {
+                SetButtonStates("Bills");
+                Navigation.NavigateTo<BillsViewModel>(true);
+            }, o => true);
+
+            NavigateToWorkersViewCommand = new RelayCommand(o =>
+            {
+                SetButtonStates("Workers");
+                Navigation.NavigateTo<WorkersViewModel>(true);
+            }, o => true);
+
+            NavigateToServicesViewCommand = new RelayCommand(o =>
+            {
+                SetButtonStates("Services");
+                Navigation.NavigateTo<ServicesViewModel>(true);
+            }, o => true);
+
+            NavigateToItemsViewCommand = new RelayCommand(o =>
+            {
+                SetButtonStates("Items");
+                Navigation.NavigateTo<ItemsViewModel>(true);
+            }, o => true);
+
+            NavigateToSettingsViewCommand = new RelayCommand(o =>
+            {
+                SetButtonStates("Settings");
+                Navigation.NavigateTo<SettingsViewModel>(true);
+            }, o => true);
+
+            Navigation.NavigateTo<BillsViewModel>(true);
         }
+        private void SetButtonStates(string pressedButton)
+        {
+            IsBillsButtonEnabled = pressedButton != "Bills";
+            IsWorkersButtonEnabled = pressedButton != "Workers";
+            IsServicesButtonEnabled = pressedButton != "Services";
+            IsItemsButtonEnabled = pressedButton != "Items";
+            IsSettingsButtonEnabled = pressedButton != "Settings";
+
+            OnPropertyChanged(nameof(IsBillsButtonEnabled));
+            OnPropertyChanged(nameof(IsWorkersButtonEnabled));
+            OnPropertyChanged(nameof(IsServicesButtonEnabled));
+            OnPropertyChanged(nameof(IsItemsButtonEnabled));
+            OnPropertyChanged(nameof(IsSettingsButtonEnabled));
+        }
+
     }
 }

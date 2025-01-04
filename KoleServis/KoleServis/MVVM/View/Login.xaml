@@ -7,6 +7,10 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="White"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
+        <Grid.InputBindings>
+            <KeyBinding Key="Enter" 
+                        Command="{Binding LoginCommand}" />
+        </Grid.InputBindings>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
@@ -71,7 +75,8 @@
              BorderThickness="0 0 0 1.5"
              VerticalAlignment="Center"
              Grid.Column="1"
-             PasswordChanged="PasswordBox_PasswordChanged"/>
+             PasswordChanged="PasswordBox_PasswordChanged"
+                             KeyDown="PasswordBox_KeyDown"/>
 
             </Grid>
             <Grid Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -84,7 +89,6 @@
 
                 <Button materialDesign:ButtonAssist.CornerRadius="25"
                      Command="{Binding LoginCommand}"
-                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                      Style="{StaticResource CommandButton}"
                      ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                      Margin="100,0,100,0">

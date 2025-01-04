@@ -14,6 +14,15 @@ using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
+using KoleServis.MVVM.View;
+using System.Drawing.Printing;
+using System.Windows.Forms;
+using System.Windows.Controls;
+using static MaterialDesignThemes.Wpf.Theme.ToolBar;
+using System.Windows.Documents;
+using System.Windows.Media;
+using System.Globalization;
+
 
 namespace KoleServis.MVVM.ViewModel
 {
@@ -140,6 +149,7 @@ namespace KoleServis.MVVM.ViewModel
         public RelayCommand SearchCommand { get; set; }
 
         public RelayCommand IncreaseCommand { get; set; }
+        public RelayCommand PreviewCommand { get; set; }
 
         public RelayCommand DecreaseCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
@@ -215,8 +225,25 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(CustomerName));
             }
         }
+
+        private string _number;
+        public string Number
+        {
+            get => _number;
+            set
+            {
+                _number = value;
+                OnPropertyChanged();
+            }
+        }
         public RelayCommand CreateCommand { get; set; }
         public RelayCommand PrintCommand { get; set; }
+
+        private Racun billTmp;
+
+        private Osoba osoba {  get; set; }
+        public ConfirmWindowViewModel confirmWindowViewModel;
+
         public CreateBillViewModel()
         {
             OriginalDijelovi = new ObservableCollection<ItemComponentViewModel>();
@@ -230,6 +257,7 @@ namespace KoleServis.MVVM.ViewModel
             IncreaseCommand = new RelayCommand(execute=>Increase(), o => true);
             DecreaseCommand = new RelayCommand(execute=>Decrease(), o => true);
             DeleteCommand=new RelayCommand(execute=>Delete(), o => true);
+            PreviewCommand=new RelayCommand(execute=>Preview(), o => true);
 
             ItemsChecked = false;
             LoadDefaultImage();
@@ -240,34 +268,47 @@ namespace KoleServis.MVVM.ViewModel
             _FindService = new FindService();
             Customers=_FindService.FindAllCustomer();
 
+            osoba = SharedUser.CurrentPerson;
+
             CreateCommand=new RelayCommand(execute=>Create(), o => true);
             PrintCommand=new RelayCommand(execute=>Print(), o => true);
+            confirmWindowViewModel = new ConfirmWindowViewModel();
 
         }
         public void Create()
         {
-            Racun racun = null;
-            if (ItemsBill.Count() != 0 && !SelectedDate.ToString().Equals("") && !SelectedTime.ToString().Equals(""))
+            confirmWindowViewModel.Result = (confirmed) =>
             {
-                string dateTimeString = SelectedDate?.ToString("yyyy-MM-dd") + " " + SelectedTime?.ToString(@"hh\:mm\:ss");
-                DateTime.TryParseExact(
-                    dateTimeString,
-                    "yyyy-MM-dd HH:mm:ss", // Očekivani format
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.DateTimeStyles.None,
-                    out DateTime result);
-                racun = new Racun { Cijena =(Decimal)PriceOver,Datum=result, KupacIdKupac = SelectedCustomer != null?SelectedCustomer.IdKupac:null, RadnikOsobaKorisnickoIme="KoleMajstor",RadnjaIdRadnja=1.ToString()};
-            }
-            if (racun != null)
-            {
-                using(var context=new HcitableContext())
+                if (confirmed)
                 {
-                    context.Racuns.Add(racun);
-                    context.SaveChanges();
-                    SaveItems(racun);
+                    Racun racun = null;
+                    if (ItemsBill.Count() != 0 && !SelectedDate.ToString().Equals("") && !SelectedTime.ToString().Equals(""))
+                    {
+                        string dateTimeString = SelectedDate?.ToString("yyyy-MM-dd") + " " + SelectedTime?.ToString(@"hh\:mm\:ss");
+                        DateTime.TryParseExact(
+                            dateTimeString,
+                            "yyyy-MM-dd HH:mm:ss", 
+                            System.Globalization.CultureInfo.InvariantCulture,
+                            System.Globalization.DateTimeStyles.None,
+                            out DateTime result);
+                        racun = new Racun { Cijena = (Decimal)PriceOver, Datum = result, KupacIdKupac = SelectedCustomer != null ? SelectedCustomer.IdKupac : null, RadnikOsobaKorisnickoIme = osoba.KorisnickoIme, RadnjaIdRadnja = 1.ToString() };
+                        billTmp = racun;
+                    }
+                    if (racun != null)
+                    {
+                        using (var context = new HcitableContext())
+                        {
+                            context.Racuns.Add(racun);
+                            context.SaveChanges();
+                            SaveItems(racun);
+                        }
+                        var succes = new SuccessfulAction();
+                        succes.ShowDialog();
+                    }
                 }
-            }
-
+            };
+            var confirmWindow = new ConfirmWindow(confirmWindowViewModel.Result);
+            confirmWindow.ShowDialog();
         }
 
         public void SaveItems(Racun racun)
@@ -284,7 +325,6 @@ namespace KoleServis.MVVM.ViewModel
                     }
                     else if (items.IsDio == false)
                     {
-                        //TODO zamijeniti nalog da bude stvarni nalog
                         StavkaUsluga service = new StavkaUsluga { UslugaIdUsluga = items.Id, Kolicina = items.Kolicina, CijenaKomad = Decimal.Parse(items.Cijena), CijenaUkupno = (Decimal)items.UkupnaCijena, RadnikOsobaKorisnickoIme = "KoleMajstor", RacunIdRacun = racun.IdRacun };
                         context.StavkaUslugas.Add(service);
                         context.SaveChanges();
@@ -295,8 +335,30 @@ namespace KoleServis.MVVM.ViewModel
 
         public void Print()
         {
+            string dateTimeString = SelectedDate?.ToString("dd.MM.yyyy");
+            FlowDocument flowDocument = new PrintService().CreateFlowDocument(ItemsBill,CustomerName,billTmp,Number,dateTimeString,PriceOver.ToString("F2"));
 
+            PrintDialog printDialog = new PrintDialog();
+
+            if (printDialog.ShowDialog() == true)
+            {
+                IDocumentPaginatorSource paginatorSource = flowDocument;
+
+                printDialog.PrintDocument(paginatorSource.DocumentPaginator, "Štampanje računa");
+            }
         }
+
+        public void Preview()
+        {
+            string dateTimeString = SelectedDate?.ToString("dd.MM.yyyy");
+            FlowDocument flowDocument = new PrintService().CreateFlowDocument(ItemsBill, CustomerName, billTmp, Number, dateTimeString, PriceOver.ToString("F2"));
+
+            var documentWindow = new DocumentViewewWindow();
+            documentWindow.SetDocument(flowDocument);
+            documentWindow.ShowDialog();
+        }
+
+
         public void ChangeItemsChecked()
         {
             ItemsChecked = ItemsChecked==true?false:true;
@@ -318,7 +380,6 @@ namespace KoleServis.MVVM.ViewModel
 
         public void Increase()
         {
-            MessageBox.Show(SelectedDate?.ToString("yyyy-MM-dd") + " " + SelectedTime?.ToString(@"hh\:mm\:ss"));
 
             if (SelectedItemBill!=null && SelectedItemBill.Kolicina < SelectedItemBill.MaxKolicina)
             {
@@ -362,39 +423,60 @@ namespace KoleServis.MVVM.ViewModel
                 ItemsBill.Add(item);
             }
         }
-
-        public void Search()
+        public void SetDijelovi(List<ItemComponentViewModel> filteredList)
         {
-            if (string.IsNullOrEmpty(SearchItem))
+            Dijelovi.Clear();
+            if (filteredList.Count == 0)
             {
-                Dijelovi.Clear();
-                foreach (var dio in OriginalDijelovi)
-                    Dijelovi.Add(dio);
+                CustomMessageBox messageBox = new CustomMessageBox();
+                messageBox.ShowDialog();
             }
-            else if (SearchItem!=null && !SearchItem.Equals("") && ItemsChecked==true && SelectedCategory!=null && !SelectedCategory.Equals(""))
+            else
             {
-                int idkat = getIdKat(SelectedCategory);
-                var filteredList = OriginalDijelovi
-                    .Where(dio => dio.Naziv.Contains(SearchItem, StringComparison.OrdinalIgnoreCase) && dio.idKategorija==idkat)
-                    .ToList();
-
-                Dijelovi.Clear();
                 foreach (var dio in filteredList)
                     Dijelovi.Add(dio);
             }
-            else
+        }
+        public void Search()
+        {
+            
+            if (SearchItem!=null && !SearchItem.Equals("") && ItemsChecked==true && SelectedCategory!=null && !SelectedCategory.Equals(""))
+            {
+                int idkat = GetIdKat(SelectedCategory);
+                var filteredList = OriginalDijelovi
+                    .Where(dio => dio.Naziv.Contains(SearchItem, StringComparison.OrdinalIgnoreCase) && dio.idKategorija==idkat)
+                    .ToList();
+                SetDijelovi(filteredList);
+                
+            }
+            else if (ItemsChecked == true && SelectedCategory != null && !SelectedCategory.Equals(""))
+            {
+                int idkat = GetIdKat(SelectedCategory);
+                var filteredList = OriginalDijelovi
+                    .Where(dio => dio.idKategorija == idkat)
+                    .ToList();
+
+                SetDijelovi(filteredList);
+
+            }
+            else if (SearchItem != null && !SearchItem.Equals(""))
             {
                 var filteredList = OriginalDijelovi
                     .Where(dio => dio.Naziv.Contains(SearchItem, StringComparison.OrdinalIgnoreCase))
                     .ToList();
 
+                SetDijelovi(filteredList);
+
+            }
+            else
+            {
                 Dijelovi.Clear();
-                foreach (var dio in filteredList)
+                foreach (var dio in OriginalDijelovi)
                     Dijelovi.Add(dio);
             }
         }
 
-        private int getIdKat(string naziv)
+        private int GetIdKat(string naziv)
         {
             using (var context = new HcitableContext())
             {
@@ -414,13 +496,9 @@ namespace KoleServis.MVVM.ViewModel
         private void AddToBill()
         {
             
-            ItemComponentViewModel _item=new ItemComponentViewModel{ Naziv = SelectedItem.Naziv,Id=SelectedItem.Id,IsDio=SelectedItem.IsDio, Cijena = SelectedItem.Cijena, Kolicina = 1, UkupnaCijena = Double.Parse(SelectedItem.Cijena), MaxKolicina=SelectedItem.idKategorija!=0?SelectedItem.Kolicina:int.MaxValue };
+            ItemComponentViewModel _item=new ItemComponentViewModel{ Naziv = SelectedItem.Naziv,Id=SelectedItem.Id,IsDio=SelectedItem.IsDio, Cijena = SelectedItem.Cijena, Kolicina = 1, UkupnaCijena =Math.Round(Double.Parse(SelectedItem.Cijena),2), MaxKolicina=SelectedItem.idKategorija!=0?SelectedItem.Kolicina:int.MaxValue };
             if(!ItemsBill.Contains(_item)) 
                 ItemsBill.Add(_item);
-            else
-            {
-                MessageBox.Show("This item is already at bill");
-            }
             RefreshPrice();
 
 

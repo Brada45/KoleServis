@@ -13,8 +13,8 @@ namespace KoleServis.Services
 
         public static void ChangeFont(String font)
         {
-            string tmp="";
-            if (font.Equals("Arial"))
+            string tmp=font.ToLower().Replace(" ","-");
+           /* if (font.Equals("Arial"))
             {
                 tmp = "arial";
             }else if(font.Equals("Times New Roman"))
@@ -23,24 +23,25 @@ namespace KoleServis.Services
             }else if(font.Equals("Courier New"))
             {
                 tmp = "courier-new";
-            }
+            }*/
 
 
             var oldDictionary = Application.Current.Resources.MergedDictionaries
                 .FirstOrDefault(d => d.Source != null && d.Source.OriginalString.Contains("Resources/Fonts-"));
 
-            // Ukloni stari ResourceDictionary ako postoji
             if (oldDictionary != null)
             {
                 Application.Current.Resources.MergedDictionaries.Remove(oldDictionary);
             }
 
-            // Dodaj novi ResourceDictionary
             var newDictionary = new ResourceDictionary
             {
                 Source = new Uri("Resources/Fonts-"+tmp+"-dic.xaml", UriKind.Relative)
             };
             Application.Current.Resources.MergedDictionaries.Add(newDictionary);
+
+            Properties.Settings.Default.font=font;
+            Properties.Settings.Default.Save();
         }
     }
 }

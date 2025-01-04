@@ -57,25 +57,28 @@ namespace KoleServis.MVVM.ViewModel
         
         }
 
-        private void GetBills()
+        private async Task GetBills()
         {
-            using (var context = new HcitableContext())
+            await Task.Run(() =>
             {
-                var bills = context.Racuns.ToList();
-                _bills = new ObservableCollection<Racun>();
-
-                foreach (var bill in bills)
+                using (var context = new HcitableContext())
                 {
-                    Kupac customer = _FindService.FindCustomer(bill.KupacIdKupac);
-                    _bills.Add(new Racun
+                    var bills = context.Racuns.ToList();
+                    _bills = new ObservableCollection<Racun>();
+
+                    foreach (var bill in bills)
                     {
-                        IdRacun = bill.IdRacun,
-                        Customer = customer != null ? customer.Naziv : "",
-                        Datum = bill.Datum,
-                        Cijena = bill.Cijena
-                    });
+                        Kupac customer = _FindService.FindCustomer(bill.KupacIdKupac);
+                        _bills.Add(new Racun
+                        {
+                            IdRacun = bill.IdRacun,
+                            Customer = customer != null ? customer.Naziv : "",
+                            Datum = bill.Datum,
+                            Cijena = bill.Cijena
+                        });
+                    }
                 }
-            }
+            });
         }
 
         private void OnSelecetedBillChanged()

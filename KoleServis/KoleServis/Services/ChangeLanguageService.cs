@@ -20,18 +20,18 @@ namespace KoleServis.Services
             var oldDictionary = Application.Current.Resources.MergedDictionaries
                 .FirstOrDefault(d => d.Source != null && d.Source.OriginalString.Contains("Resources/Dictionary-"));
 
-            // Ukloni stari ResourceDictionary ako postoji
             if (oldDictionary != null)
             {
                 Application.Current.Resources.MergedDictionaries.Remove(oldDictionary);
             }
 
-            // Dodaj novi ResourceDictionary
             var newDictionary = new ResourceDictionary
             {
                 Source = new Uri($"Resources/Dictionary-{lang}.xaml", UriKind.Relative)
             };
             Application.Current.Resources.MergedDictionaries.Add(newDictionary);
+            Properties.Settings.Default.lang = IsToggled.ToString();
+            Properties.Settings.Default.Save();
         }
     }
 }

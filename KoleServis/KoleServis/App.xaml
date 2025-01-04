@@ -28,6 +28,7 @@
                 <ResourceDictionary Source="Resources/Colors/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="Resources/Colors/RadioButtonStyle.xaml"/>
                 <ResourceDictionary Source="Resources/Colors/ToggleButtonStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Colors/TextBlockStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type TypeName=viewModel:BillsViewModel}">
                 <view:BillsView/>

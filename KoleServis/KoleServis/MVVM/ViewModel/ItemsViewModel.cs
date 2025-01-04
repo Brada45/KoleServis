@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf.Compiler;
 using KoleServis.Core;
 using KoleServis.MVVM.Models;
+using KoleServis.MVVM.View;
 using KoleServis.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Win32;
@@ -96,6 +97,40 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+        private string _searchItem;
+        public string SearchItem
+        {
+            get => _searchItem;
+            set
+            {
+                _searchItem = value;
+                OnPropertyChanged(nameof(SearchItem));
+            }
+        }
+        public string _selectedSearchCategory { get; set; }
+        public string SelectedSearchCategory
+        {
+            get => _selectedCategory;
+            set
+            {
+                _selectedCategory = value;
+                OnPropertyChanged(nameof(SelectedSearchCategory));
+            }
+        }
+        private bool _itemsChecked;
+
+        public bool ItemsChecked
+        {
+            get => _itemsChecked;
+            set
+            {
+                if (_itemsChecked != value)
+                {
+                    _itemsChecked = value;
+                    OnPropertyChanged(nameof(ItemsChecked));
+                }
+            }
+        }
         private string _defaultImage {  get; set; }
         private byte[] array {  get; set; }
 
@@ -104,47 +139,100 @@ namespace KoleServis.MVVM.ViewModel
         public RelayCommand UpdateCommand { get; set; }
         public RelayCommand ClearCommand { get; set; }
         public RelayCommand UpdateImageCommand { get; set; }
+        public RelayCommand SearchCommand { get; set; }
+        public RelayCommand ClearCategoryCommand { get; set; }
+        public ObservableCollection<ItemComponentViewModel> OriginalDijelovi {  get; set; }
+        public ConfirmWindowViewModel confirmWindowViewModel;
+
 
         public ItemsViewModel()
         {
-            Dijelovi = new ObservableCollection<ItemComponentViewModel>();
+            OriginalDijelovi = new ObservableCollection<ItemComponentViewModel>();
             Categories = new ObservableCollection<string>();
             AddCommand = new RelayCommand(o => AddItem(), o => SelectedItem == null);
             DeleteCommand = new RelayCommand(o => DeleteItem(), o => SelectedItem != null);
             UpdateCommand = new RelayCommand(o => UpdateItem(), o => SelectedItem != null);
             ClearCommand = new RelayCommand(o => ClearItem(), o => true);
             UpdateImageCommand=new RelayCommand(o=>UpdateImage(),o=>true);
+            ClearCategoryCommand = new RelayCommand(execute => ClearCategory(), o => true);
+            SearchCommand=new RelayCommand(o=>Search(),o=>true);
+            confirmWindowViewModel = new ConfirmWindowViewModel();
             _FindService = new FindService();
 
             LoadDefaultImage();
             GetItems();
+            Dijelovi = new ObservableCollection<ItemComponentViewModel>(OriginalDijelovi);
+        }
+
+        private void UpdateList()
+        {
+            Dijelovi.Clear();
+            foreach(var item in OriginalDijelovi)
+            {
+                Dijelovi.Add(item);
+            }
         }
         private void AddItem()
         {
-            int cat=_FindService.FindIdCategory(SelectedCategory);
-            if (cat != 0) {
-                Dio item = new Dio { Naziv = Title, Cijena = Price,Obrisano=0, Kolicina = Quantity,RadnjaIdRadnja="1", KategorijaIdKategorija = cat, Slika = ImageService.BitmapImageToByteArray(SelectedImage)};
-                using (var context = new HcitableContext())
+            confirmWindowViewModel.Result = (confirmed) =>
+            {
+                if (confirmed)
                 {
-                    context.Dios.Add(item);
-                    context.SaveChanges();
+                    int cat = _FindService.FindIdCategory(SelectedCategory);
+                    if (cat != 0)
+                    {
+                        if (!Title.Equals("") && !Price.Equals("") && !Quantity.Equals("")) {
+                            Dio item = new Dio { Naziv = Title, Cijena = Price, Obrisano = 0, Kolicina = Quantity, RadnjaIdRadnja = "1", KategorijaIdKategorija = cat, Slika = ImageService.BitmapImageToByteArray(SelectedImage) };
+                            using (var context = new HcitableContext())
+                            {
+                                context.Dios.Add(item);
+                                context.SaveChanges();
+                            }
+                            OriginalDijelovi.Add(new ItemComponentViewModel { Id = item.IdDio, Naziv = item.Naziv, Cijena = item.Cijena.ToString(), Slika = item.Slika != null ? item.Slika : array, Kolicina = item.Kolicina, idKategorija = item.KategorijaIdKategorija });
+                            UpdateList();
+                            var success = new SuccessfulAction();
+                            success.ShowDialog();
+                        }
+                        else
+                        {
+                            var unsucc=new UnseccessfulAction();
+                            unsucc.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        var unsucc = new UnseccessfulAction();
+                        unsucc.ShowDialog();
+                    }
                 }
-                Dijelovi.Add(new ItemComponentViewModel { Id = item.IdDio, Naziv = item.Naziv, Cijena = item.Cijena.ToString(), Slika = item.Slika != null ? item.Slika : array, Kolicina = item.Kolicina, idKategorija = item.KategorijaIdKategorija });
-            }
+            };
+            var confirmWindow = new ConfirmWindow(confirmWindowViewModel.Result);
+            confirmWindow.ShowDialog();
         }
         private void DeleteItem()
         {
-            using (var context = new HcitableContext())
+            confirmWindowViewModel.Result = (confirmed) =>
             {
-                var item = context.Dios.FirstOrDefault(i => i.IdDio==SelectedItem.Id);
-                if (item != null)
+                if (confirmed)
                 {
-                    item.Obrisano = 1;
-                    context.SaveChanges();
-                    Dijelovi.Remove(SelectedItem);
-                    ClearItem();
+                    using (var context = new HcitableContext())
+                    {
+                        var item = context.Dios.FirstOrDefault(i => i.IdDio == SelectedItem.Id);
+                        if (item != null)
+                        {
+                            item.Obrisano = 1;
+                            context.SaveChanges();
+                            OriginalDijelovi.Remove(SelectedItem);
+                            ClearItem();
+                            var success=new SuccessfulAction();
+                            success.ShowDialog();
+                        }
+                    }
+                    UpdateList();
                 }
-            }
+            };
+            var confirmWindow = new ConfirmWindow(confirmWindowViewModel.Result);
+            confirmWindow.ShowDialog();
 
         }
         private void UpdateItem()
@@ -166,6 +254,8 @@ namespace KoleServis.MVVM.ViewModel
                         item.Kolicina = Quantity;
                         item.Slika=ImageService.BitmapImageToByteArray(SelectedImage);
                         context.SaveChanges();
+                        var success=new SuccessfulAction();
+                        success.ShowDialog();
                     }
                 }
 
@@ -179,9 +269,10 @@ namespace KoleServis.MVVM.ViewModel
             var tempItems = Dijelovi.ToList();
 
             Dijelovi.Clear();
-
+            OriginalDijelovi.Clear();
             foreach (var item in tempItems)
             {
+                OriginalDijelovi.Add(item);
                 Dijelovi.Add(item);
             }
         }
@@ -226,7 +317,7 @@ namespace KoleServis.MVVM.ViewModel
                 foreach (var item in items)
                 {
                     if(item.Obrisano==0)
-                        Dijelovi.Add(new ItemComponentViewModel { Id = item.IdDio, Naziv = item.Naziv, Cijena = item.Cijena.ToString(), Slika = item.Slika!=null?item.Slika:array, Kolicina=item.Kolicina,idKategorija=item.KategorijaIdKategorija });
+                        OriginalDijelovi.Add(new ItemComponentViewModel { Id = item.IdDio, Naziv = item.Naziv, Cijena = item.Cijena.ToString(), Slika = item.Slika!=null?item.Slika:array, Kolicina=item.Kolicina,idKategorija=item.KategorijaIdKategorija });
                     
                 }
             }
@@ -254,6 +345,78 @@ namespace KoleServis.MVVM.ViewModel
                 var tmpCat = _FindService.FindCategory(SelectedItem.idKategorija);
                 SelectedCategory = tmpCat.Naziv;
                 SelectedImage = ImageService.ByteArrayToImage(SelectedItem.Slika);
+            }
+        }
+
+        public void ClearCategory()
+        {
+            SelectedSearchCategory = null;
+        }
+        private int GetIdKat(string naziv)
+        {
+            using (var context = new HcitableContext())
+            {
+                var trazeniZapis = context.Kategorijas.FirstOrDefault(x => x.Naziv.Equals(naziv));
+                if (trazeniZapis != null)
+                {
+                    return trazeniZapis.IdKategorija;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+
+        }
+        public void SetDijelovi(List<ItemComponentViewModel> filteredList)
+        {
+            Dijelovi.Clear();
+            if (filteredList.Count == 0)
+            {
+                CustomMessageBox messageBox = new CustomMessageBox();
+                messageBox.ShowDialog();
+            }
+            else
+            {
+                foreach (var dio in filteredList)
+                    Dijelovi.Add(dio);
+            }
+        }
+        public void Search()
+        {
+            if (SearchItem != null && !SearchItem.Equals("") && ItemsChecked == true && SelectedCategory != null && !SelectedCategory.Equals(""))
+            {
+                int idkat = GetIdKat(SelectedSearchCategory);
+                var filteredList = OriginalDijelovi
+                    .Where(dio => dio.Naziv.Contains(SearchItem, StringComparison.OrdinalIgnoreCase) && dio.idKategorija == idkat)
+                    .ToList();
+                SetDijelovi(filteredList);
+
+            }
+            else if (ItemsChecked == true && SelectedCategory != null && !SelectedCategory.Equals(""))
+            {
+                int idkat = GetIdKat(SelectedSearchCategory);
+                var filteredList = OriginalDijelovi
+                    .Where(dio => dio.idKategorija == idkat)
+                    .ToList();
+
+                SetDijelovi(filteredList);
+
+            }
+            else if (SearchItem != null && !SearchItem.Equals(""))
+            {
+                var filteredList = OriginalDijelovi
+                    .Where(dio => dio.Naziv.Contains(SearchItem, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                SetDijelovi(filteredList);
+
+            }
+            else
+            {
+                Dijelovi.Clear();
+                foreach (var dio in OriginalDijelovi)
+                    Dijelovi.Add(dio);
             }
         }
     }

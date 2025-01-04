@@ -16,18 +16,18 @@ namespace KoleServis.Services
             var oldDictionary = Application.Current.Resources.MergedDictionaries
                 .FirstOrDefault(d => d.Source != null && d.Source.OriginalString.Contains("Resources/FontWeight/FontWeight-"));
 
-            // Ukloni stari ResourceDictionary ako postoji
             if (oldDictionary != null)
             {
                 Application.Current.Resources.MergedDictionaries.Remove(oldDictionary);
             }
 
-            // Dodaj novi ResourceDictionary
             var newDictionary = new ResourceDictionary
             {
                 Source = new Uri("Resources/FontWeight/FontWeight-" + font + "-dic.xaml", UriKind.Relative)
             };
             Application.Current.Resources.MergedDictionaries.Add(newDictionary);
+            Properties.Settings.Default.bold = font;
+            Properties.Settings.Default.Save();
         }
         public void ChangeItalic(String font)
         {
@@ -35,18 +35,18 @@ namespace KoleServis.Services
             var oldDictionary = Application.Current.Resources.MergedDictionaries
                 .FirstOrDefault(d => d.Source != null && d.Source.OriginalString.Contains("Resources/FontStyle/FontStyle-"));
 
-            // Ukloni stari ResourceDictionary ako postoji
             if (oldDictionary != null)
             {
                 Application.Current.Resources.MergedDictionaries.Remove(oldDictionary);
             }
 
-            // Dodaj novi ResourceDictionary
             var newDictionary = new ResourceDictionary
             {
                 Source = new Uri("Resources/FontStyle/FontStyle-" + font + "-dic.xaml", UriKind.Relative)
             };
             Application.Current.Resources.MergedDictionaries.Add(newDictionary);
+            Properties.Settings.Default.italic = font;
+            Properties.Settings.Default.Save();
         }
     }
 }

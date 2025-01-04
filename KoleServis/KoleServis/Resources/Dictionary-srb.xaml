@@ -46,5 +46,19 @@
     <System:String x:Key="SelectedCustomer">Odabrani kupac</System:String>
     <System:String x:Key="CreateBill">Kreiraj racun</System:String>
     <System:String x:Key="Print">Printaj</System:String>
+    <System:String x:Key="SelectDateAndTime">Odaberite datum i vrijeme</System:String>
+    <System:String x:Key="NotFound">Nema podudaranja</System:String>
+    <System:String x:Key="AreYouSure">Da li si siguran?</System:String>
+
+    <System:String x:Key="Confirm">Potvrdi</System:String>
+    <System:String x:Key="Cancel">Odbij</System:String>
+    <System:String x:Key="ActionPerformedSuccessfully">Akcija je uspjesno izvrsena</System:String>
+    <System:String x:Key="ActionPerformedunsuccessfully">Akcija nije uspjesno izvrsena</System:String>
+    <System:String x:Key="DeleteItem">Obrisi</System:String>
+    <System:String x:Key="BillNumber">Broj racuna</System:String>
+    <System:String x:Key="TotalPayment">Ukupno za naplatu</System:String>
+    <System:String x:Key="Preview">Pogledaj fakturu</System:String>
+
+
 
 </ResourceDictionary>

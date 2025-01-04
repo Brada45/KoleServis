@@ -6,8 +6,13 @@
     <System:String x:Key="Username">Username</System:String>
     <System:String x:Key="Password">Password</System:String>
     <System:String x:Key="LoginSmall">Login</System:String>
+    <System:String x:Key="ActionPerformedSuccessfully">Action performed successfully</System:String>
+    <System:String x:Key="ActionPerformedUnsuccessfully">Action performed unsuccessfully</System:String>
+
+    <System:String x:Key="NotFound">There are no matches</System:String>
     <System:String x:Key="Warrning">Incorrect username or password</System:String>
 
+    <System:String x:Key="AreYouSure">Are you sure?</System:String>
     <System:String x:Key="Bills">Bills</System:String>
     <System:String x:Key="Workers">Workers</System:String>
     <System:String x:Key="Services">Services</System:String>
@@ -46,6 +51,14 @@
     <System:String x:Key="SelectedCustomer">Selected Customer</System:String>
     <System:String x:Key="CreateBill">Create bill</System:String>
     <System:String x:Key="Print">Print</System:String>
+    <System:String x:Key="SelectDateAndTime">Select date and time</System:String>
+
+    <System:String x:Key="Confirm">Confirm</System:String>
+    <System:String x:Key="Cancel">Cancel</System:String>
+    <System:String x:Key="DeleteItem">Delete</System:String>
+    <System:String x:Key="BillNumber">Bill number</System:String>
+    <System:String x:Key="TotalPayment">Total for payment</System:String>
+    <System:String x:Key="Preview">Preview</System:String>
 
 
 </ResourceDictionary>

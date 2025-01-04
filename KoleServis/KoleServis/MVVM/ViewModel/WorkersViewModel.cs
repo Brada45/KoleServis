@@ -1,5 +1,6 @@
 ﻿using KoleServis.Core;
 using KoleServis.MVVM.Models;
+using KoleServis.MVVM.View;
 using KoleServis.Services;
 using Mysqlx.Crud;
 using System;
@@ -8,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace KoleServis.MVVM.ViewModel
 {
@@ -118,6 +120,7 @@ namespace KoleServis.MVVM.ViewModel
         public RelayCommand DeleteCommand { get; set; }
         public RelayCommand UpdateCommand { get; set; }
         public RelayCommand ClearCommand { get; set; }
+        public ConfirmWindowViewModel confirmWindowViewModel;
 
         public WorkersViewModel()
         {
@@ -128,45 +131,74 @@ namespace KoleServis.MVVM.ViewModel
             AddCommand = new RelayCommand(o => AddPerson(), o => SelectedPerson == null);
             DeleteCommand = new RelayCommand(o => DeletePerson(), o => SelectedPerson != null);
             UpdateCommand = new RelayCommand(o => UpdatePerson(), o => SelectedPerson != null);
-            ClearCommand=new RelayCommand(o=>ClearPerson(),o=> true);
+            confirmWindowViewModel = new ConfirmWindowViewModel();
+            ClearCommand = new RelayCommand(o=>ClearPerson(),o=> true);
             GetPersons();
             
         }
 
         private void AddPerson()
         {
-            Osoba person = null;
-            string tmpPassword = _Base64Service.ConvertPassword(Password);
-            string tmpConfirm=_Base64Service.ConvertPassword(ConfirmPassword);
-            if (tmpPassword.Equals(tmpConfirm) && !Username.Equals("") && !Surname.Equals("") && !Name.Equals(""))
+            confirmWindowViewModel.Result = (confirmed) =>
             {
-                 person= new Osoba { KorisnickoIme = Username, Ime = Name, Prezime = Surname, Sifra = tmpPassword, TipIdTip = 1, TemaIdTema = 1, JezikIdJezik = 1, Obrisan = 0 };
-            }
-            if (person != null)
-            {
-                _persons.Add(person);
-                using (var context = new HcitableContext())
+                if (confirmed)
                 {
-                    context.Osobas.Add(person);
-                    context.SaveChanges();
+                    Osoba person = null;
+                    string tmpPassword = _Base64Service.ConvertPassword(Password);
+                    string tmpConfirm = _Base64Service.ConvertPassword(ConfirmPassword);
+                    if (tmpPassword.Equals(tmpConfirm) && !Username.Equals("") && !Surname.Equals("") && !Name.Equals(""))
+                    {
+                        person = new Osoba { KorisnickoIme = Username, Ime = Name, Prezime = Surname, Sifra = tmpPassword, TipIdTip = 1, TemaIdTema = 1, JezikIdJezik = 1, Obrisan = 0 };
+                    }
+                    if (person != null)
+                    {
+                        _persons.Add(person);
+                        using (var context = new HcitableContext())
+                        {
+                            context.Osobas.Add(person);
+                            context.SaveChanges();
+                        }
+                        var succes = new SuccessfulAction();
+                        succes.ShowDialog();
+                    }
+                    else
+                    {
+                        var succes = new UnseccessfulAction();
+                        succes.ShowDialog();
+                    }
                 }
-            }
+            };
+            var confirmWindow = new ConfirmWindow(confirmWindowViewModel.Result);
+            confirmWindow.ShowDialog();
 
         }
 
         private void DeletePerson()
         {
-            using (var context = new HcitableContext())
+            confirmWindowViewModel.Result = (confirmed) =>
             {
-                var user = context.Osobas.FirstOrDefault(u => u.KorisnickoIme.Equals(SelectedPerson.KorisnickoIme));
-                if (user!=null)
+                if (confirmed)
                 {
-                    user.Obrisan = 1;
-                    context.SaveChanges();
-                    Persons.Remove(SelectedPerson);
-                    ClearPerson();
+                    using (var context = new HcitableContext())
+                    {
+                        var user = context.Osobas.FirstOrDefault(u => u.KorisnickoIme.Equals(SelectedPerson.KorisnickoIme));
+                        if (user != null)
+                        {
+                            user.Obrisan = 1;
+                            context.SaveChanges();
+                            Persons.Remove(SelectedPerson);
+                            ClearPerson();
+                            var succes=new SuccessfulAction();
+                            succes.ShowDialog();
+                        }
+                        else
+                        {
+                            var unsuccess=new UnseccessfulAction();
+                            unsuccess.ShowDialog();
+                        }
+                    }
                 }
-            }
+            };
         }
         private void UpdatePerson()
         {
@@ -183,6 +215,8 @@ namespace KoleServis.MVVM.ViewModel
                         user.Ime = Name;
                         user.Prezime = Surname;
                         context.SaveChanges();
+                        var succes = new SuccessfulAction();
+                        succes.ShowDialog();
                     }
                 }
 

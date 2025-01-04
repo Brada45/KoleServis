@@ -1,0 +1,14 @@
+﻿<Window x:Class="KoleServis.MVVM.View.DocumentViewewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KoleServis.MVVM.View"
+        mc:Ignorable="d"
+        Title="DocumentViewewWindow" 
+        Width="794" Height="1123"
+        ResizeMode="NoResize">
+    <Grid>
+        <FlowDocumentReader Name="DocumentReader" />
+    </Grid>
+</Window>

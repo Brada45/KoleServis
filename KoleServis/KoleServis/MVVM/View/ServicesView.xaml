@@ -15,38 +15,66 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <DataGrid Foreground="Black"   ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False">
-                <DataGrid.Columns>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.8*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0">
 
-                    <DataGridTextColumn IsReadOnly="True" Header="{DynamicResource Title}" Binding="{Binding Naziv}" Width="0.3*">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="HorizontalAlignment" Value="Left" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn IsReadOnly="True" Header="{DynamicResource Price}" Binding="{Binding Cijena}" Width="0.3*">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="HorizontalAlignment" Value="Left" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn IsReadOnly="True" Header="{DynamicResource AddedBy}" Binding="{Binding MenadzerOsobaKorisnickoIme}" Width="0.3*">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="HorizontalAlignment" Value="Left" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Command="{Binding SearchCommand}" Background="Transparent" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="Magnify" Foreground="Black" VerticalAlignment="Center" Width="30" Height="30" />
+                        </Button>
+
+                        <TextBox Grid.Column="1"
+      Text="{Binding SearchItem}"
+      VerticalAlignment="Center"
+      materialDesign:HintAssist.Hint="{DynamicResource Search}"
+                      TextWrapping="Wrap" MaxWidth="200"
+      Padding="10"/>
+                    </Grid>
+
+                    
+                </StackPanel>
+                <DataGrid Grid.Row="1" Foreground="Black"   ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn IsReadOnly="True" Header="{DynamicResource Title}" Binding="{Binding Naziv}" Width="0.3*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn IsReadOnly="True" Header="{DynamicResource Price}" Binding="{Binding Cijena}" Width="0.3*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn IsReadOnly="True" Header="{DynamicResource AddedBy}" Binding="{Binding MenadzerOsobaKorisnickoIme}" Width="0.3*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -69,14 +97,15 @@
                     materialDesign:HintAssist.FloatingOffset="0,-20"
                     BorderThickness="0 0 0 1.5"
                     VerticalAlignment="Center"
-                    Margin="100,10,100,10" />
+                    Margin="100,10,100,10" 
+                   PreviewTextInput="TextBox_PreviewTextInput"
+TextChanged="TextBox_TextChanged"/>
             </StackPanel>
 
             <StackPanel Grid.Row="3">
                 <Grid>
                     <Button materialDesign:ButtonAssist.CornerRadius="25"
                     Command="{Binding AddCommand}"
-                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                  Style="{StaticResource CommandButton}"
                  ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                             materialDesign:HintAssist.FontFamily="{DynamicResource font}"

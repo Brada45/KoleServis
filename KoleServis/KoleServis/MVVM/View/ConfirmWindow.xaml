@@ -18,8 +18,12 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="{DynamicResource Confirm}" Command="{Binding ConfirmCommand}" />
-            <Button Grid.Column="1" Content="{DynamicResource Cancel}" Command="{Binding RejectCommand}" />
+            <Button Grid.Column="0" Command="{Binding ConfirmCommand}" >
+                <TextBlock  Text="{DynamicResource Confirm}" Style="{StaticResource CommandText}"/>
+            </Button>
+            <Button Grid.Column="1"  Command="{Binding RejectCommand}" >
+                <TextBlock Text="{DynamicResource Cancel}" Style="{StaticResource CommandText}"/>
+            </Button>
         </Grid>
     </Grid>
 

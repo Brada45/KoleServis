@@ -16,8 +16,9 @@
             <materialDesign:Chip
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Left"
-                Content="{Binding Ime}" 
-                Icon="{Binding Letter}" />
+                Icon="{Binding Letter}" >
+                <TextBlock Text="{Binding Ime}" Style="{StaticResource CommandText}"/>
+            </materialDesign:Chip>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -28,43 +29,48 @@
                 <StackPanel>
                     <Button
     Command="{Binding NavigateToBillsCommand}"
-    Content="{DynamicResource Bills}"
     VerticalAlignment="Top"
     HorizontalAlignment="Stretch"
     ToolTip="Bills Button"
-    IsEnabled="{Binding IsBillsButtonEnabled}" />
+    IsEnabled="{Binding IsBillsButtonEnabled}" >
+                        <TextBlock Text="{DynamicResource Bills}" Style="{StaticResource CommandText}"/>
+                    </Button>
 
                     <Button
     Command="{Binding NavigateToWorkersViewCommand}"
-    Content="{DynamicResource Workers}"
     VerticalAlignment="Top"
     HorizontalAlignment="Stretch"
     ToolTip="Workers Button"
-    IsEnabled="{Binding IsWorkersButtonEnabled}" />
+    IsEnabled="{Binding IsWorkersButtonEnabled}" >
+                        <TextBlock Text="{DynamicResource Workers}" Style="{StaticResource CommandText}"/>
+                    </Button>
 
                     <Button
     Command="{Binding NavigateToServicesViewCommand}"
-    Content="{DynamicResource Services}"
     VerticalAlignment="Top"
     HorizontalAlignment="Stretch"
     ToolTip="Services Button"
-    IsEnabled="{Binding IsServicesButtonEnabled}" />
+    IsEnabled="{Binding IsServicesButtonEnabled}" >
+                        <TextBlock Text="{DynamicResource Services}" Style="{StaticResource CommandText}"/>
+                    </Button>
 
                     <Button
     Command="{Binding NavigateToItemsViewCommand}"
-    Content="{DynamicResource Items}"
     VerticalAlignment="Top"
     HorizontalAlignment="Stretch"
     ToolTip="Items Button"
-    IsEnabled="{Binding IsItemsButtonEnabled}" />
+    IsEnabled="{Binding IsItemsButtonEnabled}" >
+                        <TextBlock Text="{DynamicResource Items}" Style="{StaticResource CommandText}"/>
+                    </Button>
 
                     <Button
     Command="{Binding NavigateToSettingsViewCommand}"
-    Content="{DynamicResource Settings}"
     VerticalAlignment="Top"
     HorizontalAlignment="Stretch"
     ToolTip="Settings Button"
-    IsEnabled="{Binding IsSettingsButtonEnabled}" />
+    IsEnabled="{Binding IsSettingsButtonEnabled}" >
+                        <TextBlock Text="{DynamicResource Settings}" Style="{StaticResource CommandText}"/>
+                    </Button>
 
 
                 </StackPanel>

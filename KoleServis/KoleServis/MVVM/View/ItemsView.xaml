@@ -146,7 +146,7 @@
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                             Margin="50,0,50,0" 
                             >
-                        <TextBlock Text="{DynamicResource UpdateImage}"   />
+                        <TextBlock Text="{DynamicResource UpdateImage}"  Style="{StaticResource CommandText}" />
                     </Button>
                 </Grid>
             </StackPanel>
@@ -160,7 +160,7 @@
                             
          ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
             Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Add}" />
+                        <TextBlock Text="{DynamicResource Add}" Style="{StaticResource CommandText}" />
                     </Button>
                 </Grid>
                 <Grid>
@@ -171,7 +171,7 @@
               ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                             
                  Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Update}" />
+                        <TextBlock Text="{DynamicResource Update}" Style="{StaticResource CommandText}"/>
                     </Button>
                 </Grid>
                 <Grid>
@@ -181,7 +181,7 @@
              Style="{StaticResource CommandButton}"
              ToolTip="MaterialDesignRaisedDarkButton with Round Corners" 
                 Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Delete}" />
+                        <TextBlock Text="{DynamicResource Delete}" Style="{StaticResource CommandText}"/>
                     </Button>
 
                 </Grid>
@@ -192,7 +192,7 @@
           Style="{StaticResource CommandButton}"
           ToolTip="MaterialDesignRaisedDarkButton with Round Corners" 
              Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Clear}" />
+                        <TextBlock Text="{DynamicResource Clear}" Style="{StaticResource CommandText}" />
                     </Button>
 
                 </Grid>

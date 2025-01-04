@@ -28,17 +28,20 @@
                 <StackPanel>
                     <Button
                          Command="{Binding Path=NavigateToBillsCommand}"
-                        Content="{DynamicResource CreateBills}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" HorizontalAlignment="Stretch"
                         IsEnabled="{Binding IsCreateBillButonEnabled}"
                         ToolTip="MaterialDesignFlatSecondaryMidBgButton"
-                    />
+                    >
+                        <TextBlock Text="{DynamicResource CreateBills}" Style="{StaticResource CommandText}"/>
+                    </Button>
                     <Button
                         Command="{Binding NavigateToSettingsViewCommand}"
-                        Content="{DynamicResource Settings}" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top" HorizontalAlignment="Stretch"
                         IsEnabled="{Binding IsSettingsButtonEnabled}"
                         ToolTip="MaterialDesignFlatSecondaryMidBgButton"
-                        
-                    />
+                    >
+                        <TextBlock Text="{DynamicResource Settings}" Style="{StaticResource CommandText}"/>
+                    </Button>
 
                 </StackPanel>
             </Grid>

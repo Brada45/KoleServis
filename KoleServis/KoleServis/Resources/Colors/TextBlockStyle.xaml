@@ -6,4 +6,11 @@
         <Setter Property="FontWeight" Value="{DynamicResource Weight}" />
         <Setter Property="FontStyle" Value="{DynamicResource Style}" />
     </Style>
+
+    <Style x:Key="CommandText" TargetType="TextBlock" >
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundColor}" />
+        <Setter Property="FontFamily" Value="{DynamicResource font}" />
+        <Setter Property="FontWeight" Value="{DynamicResource Weight}" />
+        <Setter Property="FontStyle" Value="{DynamicResource Style}" />
+    </Style>
 </ResourceDictionary>

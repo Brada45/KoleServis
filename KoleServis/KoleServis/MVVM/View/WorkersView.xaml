@@ -104,7 +104,7 @@
                          ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                             Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Add}" />
+                        <TextBlock Text="{DynamicResource Add}" Style="{StaticResource CommandText}" />
                     </Button>
                 </Grid>
                 <Grid>
@@ -115,7 +115,7 @@
                             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                               ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                  Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Update}" />
+                        <TextBlock Text="{DynamicResource Update}" Style="{StaticResource CommandText}" />
                     </Button>
                 </Grid>
                 <Grid>
@@ -126,7 +126,7 @@
                             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                              ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                 Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Delete}" />
+                        <TextBlock Text="{DynamicResource Delete}" Style="{StaticResource CommandText}" />
                     </Button>
                     
                 </Grid>
@@ -138,7 +138,7 @@
                             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                           ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                              Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Clear}" />
+                        <TextBlock Text="{DynamicResource Clear}" Style="{StaticResource CommandText}" />
                     </Button>
 
                 </Grid>

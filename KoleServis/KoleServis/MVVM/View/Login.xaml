@@ -92,7 +92,7 @@
                      Style="{StaticResource CommandButton}"
                      ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                      Margin="100,0,100,0">
-                    <TextBlock Text="{DynamicResource LoginSmall}"/>
+                    <TextBlock Text="{DynamicResource LoginSmall}" Style="{StaticResource CommandText}"/>
                 </Button>
                 <ToggleButton 
        HorizontalAlignment="Right" VerticalAlignment="Bottom"

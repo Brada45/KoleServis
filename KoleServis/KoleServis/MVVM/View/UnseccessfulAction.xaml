@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:KoleServis.MVVM.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="UnseccessfulAction" Height="450" Width="800">
+        Title="UnseccessfulAction" Height="200" Width="300">
     <Grid>
         <TextBlock Text="{DynamicResource ActionPerformedUnsuccessfully}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Height="30" Click="OnOkClicked"/>
+        <Button  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Height="30" Click="OnOkClicked">
+            <TextBlock Text="OK" Style="{StaticResource CommandText}"/>
+        </Button>
     </Grid>
 </Window>

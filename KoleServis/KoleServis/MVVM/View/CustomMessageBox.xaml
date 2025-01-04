@@ -9,7 +9,9 @@
         Title="Info" Height="200" Width="300">
     <Grid>
         <TextBlock Text="{DynamicResource NotFound}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-        <Button Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Height="30" Click="OnOkClicked"/>
+        <Button  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Height="30" Click="OnOkClicked">
+            <TextBlock Text="OK" Style="{StaticResource CommandText}"/>
+        </Button>
     </Grid>
 
 </Window>

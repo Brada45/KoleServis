@@ -495,11 +495,14 @@ namespace KoleServis.MVVM.ViewModel
 
         private void AddToBill()
         {
-            
-            ItemComponentViewModel _item=new ItemComponentViewModel{ Naziv = SelectedItem.Naziv,Id=SelectedItem.Id,IsDio=SelectedItem.IsDio, Cijena = SelectedItem.Cijena, Kolicina = 1, UkupnaCijena =Math.Round(Double.Parse(SelectedItem.Cijena),2), MaxKolicina=SelectedItem.idKategorija!=0?SelectedItem.Kolicina:int.MaxValue };
-            if(!ItemsBill.Contains(_item)) 
-                ItemsBill.Add(_item);
-            RefreshPrice();
+            if (SelectedItem != null)
+            {
+
+                ItemComponentViewModel _item = new ItemComponentViewModel { Naziv = SelectedItem.Naziv, Id = SelectedItem.Id, IsDio = SelectedItem.IsDio, Cijena = SelectedItem.Cijena, Kolicina = 1, UkupnaCijena = Math.Round(Double.Parse(SelectedItem.Cijena), 2), MaxKolicina = SelectedItem.idKategorija != 0 ? SelectedItem.Kolicina : int.MaxValue };
+                if (!ItemsBill.Contains(_item))
+                    ItemsBill.Add(_item);
+                RefreshPrice();
+            }
 
 
         }

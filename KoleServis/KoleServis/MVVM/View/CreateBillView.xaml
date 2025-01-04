@@ -230,7 +230,7 @@
                                     materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                                       ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                          Margin="10,10,10,0">
-                                    <TextBlock Text="{DynamicResource CreateBill}" />
+                                    <TextBlock Text="{DynamicResource CreateBill}" Style="{StaticResource CommandText}"/>
                                 </Button>
                                 <Button materialDesign:ButtonAssist.CornerRadius="25"
                                      Command="{Binding PrintCommand}"
@@ -239,7 +239,7 @@
                                      materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                                        ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                           Margin="10,10,10,0">
-                                    <TextBlock Text="{DynamicResource Print}" />
+                                    <TextBlock Text="{DynamicResource Print}" Style="{StaticResource CommandText}" />
                                 </Button>
                                 <Button materialDesign:ButtonAssist.CornerRadius="25"
                                      Command="{Binding PreviewCommand}"
@@ -248,7 +248,7 @@
                                      materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                                        ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                           Margin="10,10,10,0">
-                                    <TextBlock Text="{DynamicResource Preview}" />
+                                    <TextBlock Text="{DynamicResource Preview}" Style="{StaticResource CommandText}" />
                                 </Button>
                             </StackPanel>
                         </Grid>

@@ -11,6 +11,30 @@
       "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\createbillview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\managermainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\managermainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\resources\\colors\\colors-blue-dic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\resources\\colors\\colors-blue-dic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\resources\\colors\\buttonstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\resources\\colors\\buttonstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\resources\\colors\\colors-orange-dic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\resources\\colors\\colors-orange-dic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\resources\\colors\\colors-gray-dic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\resources\\colors\\colors-gray-dic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\services\\printservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\services\\printservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -22,21 +46,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PrintService.cs",
-              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Services\\PrintService.cs",
-              "RelativeDocumentMoniker": "KoleServis\\Services\\PrintService.cs",
-              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Services\\PrintService.cs",
-              "RelativeToolTip": "KoleServis\\Services\\PrintService.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAYwGQAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T12:08:06.244Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -46,8 +57,44 @@
               "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\CreateBillView.xaml",
               "RelativeToolTip": "KoleServis\\MVVM\\View\\CreateBillView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-04T00:07:40.556Z",
+              "WhenOpened": "2025-01-04T21:18:50.766Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ManagerMainView.xaml",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ManagerMainView.xaml",
+              "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\ManagerMainView.xaml",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ManagerMainView.xaml",
+              "RelativeToolTip": "KoleServis\\MVVM\\View\\ManagerMainView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-04T19:46:04.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Colors-orange-dic.xaml",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-orange-dic.xaml",
+              "RelativeDocumentMoniker": "KoleServis\\Resources\\Colors\\Colors-orange-dic.xaml",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-orange-dic.xaml",
+              "RelativeToolTip": "KoleServis\\Resources\\Colors\\Colors-orange-dic.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-04T19:22:57.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PrintService.cs",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Services\\PrintService.cs",
+              "RelativeDocumentMoniker": "KoleServis\\Services\\PrintService.cs",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Services\\PrintService.cs",
+              "RelativeToolTip": "KoleServis\\Services\\PrintService.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAYwGQAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T12:08:06.244Z"
             },
             {
               "$type": "Document",
@@ -57,9 +104,57 @@
               "RelativeDocumentMoniker": "KoleServis\\MVVM\\ViewModel\\CreateBillViewModel.cs",
               "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\ViewModel\\CreateBillViewModel.cs",
               "RelativeToolTip": "KoleServis\\MVVM\\ViewModel\\CreateBillViewModel.cs",
-              "ViewState": "AgIAAAwBAAAAAAAAAAAIwFoBAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAN8BAAAAAAAAAAAkwPgBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-03T23:04:29.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Colors-gray-dic.xaml",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-gray-dic.xaml",
+              "RelativeDocumentMoniker": "KoleServis\\Resources\\Colors\\Colors-gray-dic.xaml",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-gray-dic.xaml",
+              "RelativeToolTip": "KoleServis\\Resources\\Colors\\Colors-gray-dic.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-04T19:26:22.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.xaml",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\Login.xaml",
+              "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\Login.xaml",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\Login.xaml",
+              "RelativeToolTip": "KoleServis\\MVVM\\View\\Login.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-04T19:21:29.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ButtonStyle.xaml",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\ButtonStyle.xaml",
+              "RelativeDocumentMoniker": "KoleServis\\Resources\\Colors\\ButtonStyle.xaml",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\ButtonStyle.xaml",
+              "RelativeToolTip": "KoleServis\\Resources\\Colors\\ButtonStyle.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-04T19:20:11.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Colors-blue-dic.xaml",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-blue-dic.xaml",
+              "RelativeDocumentMoniker": "KoleServis\\Resources\\Colors\\Colors-blue-dic.xaml",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-blue-dic.xaml",
+              "RelativeToolTip": "KoleServis\\Resources\\Colors\\Colors-blue-dic.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-04T19:19:07.464Z",
               "EditorCaption": ""
             }
           ]

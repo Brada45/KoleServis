@@ -61,7 +61,7 @@
              materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                   Margin="50,60,50,0">
-                        <TextBlock Text="{DynamicResource Update}" />
+                        <TextBlock Text="{DynamicResource Update}" Style="{StaticResource CommandText}" />
                     </Button>
                 </Grid>
                 <Grid>
@@ -72,7 +72,7 @@
             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
           ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
              Margin="50,20,50,0">
-                        <TextBlock Text="{DynamicResource Reset}" />
+                        <TextBlock Text="{DynamicResource Reset}" Style="{StaticResource CommandText}" />
                     </Button>
 
                 </Grid>

@@ -13,8 +13,26 @@ namespace KoleServis.MVVM.ViewModel
 {
     class WorkerMainViewModel:Core.ViewModel
     {
+
+
+        public RelayCommand NavigateToBillsCommand { get; set; }
+        public RelayCommand NavigateToSettingsViewCommand { get; set; }
+       
+        
+        
         public INavigationService _navigation;
+        private ChangeFontService _changeFontService;
+        private ChangeBoldItalicService _changeBoldItalicService;
+        private ChangeColorService _changeColorService;
+        private FindService _findService;
+        private Osoba Person { get; set; }
+
+
+        private string _ime;
         private bool _isToggled;
+        private string _letter;
+        public bool IsCreateBillButonEnabled { get; set; } = false;
+        public bool IsSettingsButtonEnabled { get; set; } = true;
         public bool IsToggled
         {
             get => _isToggled;
@@ -37,18 +55,7 @@ namespace KoleServis.MVVM.ViewModel
             }
         }
 
-        public RelayCommand NavigateToBillsCommand { get; set; }
-        public RelayCommand NavigateToSettingsViewCommand {  get; set; }
-        public bool IsCreateBillButonEnabled { get; set; } = false;
-        public bool IsSettingsButtonEnabled { get; set; } = true;
-
-        private ChangeFontService _changeFontService;
-        private ChangeBoldItalicService _changeBoldItalicService;
-        private ChangeColorService _changeColorService;
-        private FindService _findService;
-        private Osoba Person { get; set; }
-        private string _ime;
-        public String Ime
+        public string Ime
         {
             get => _ime;
             set
@@ -58,8 +65,7 @@ namespace KoleServis.MVVM.ViewModel
             }
         }
 
-        private string _letter;
-        public String Letter
+        public string Letter
         {
             get => _letter;
             set

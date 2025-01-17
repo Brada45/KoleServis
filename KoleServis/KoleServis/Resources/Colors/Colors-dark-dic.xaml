@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#555555"/>
+    <SolidColorBrush x:Key="ButtonForegroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="#333333"/>
+    <SolidColorBrush x:Key="ButtonForegroundColor" Color="White"/>
+    <SolidColorBrush x:Key="GridColor" Color="#2F2F2F"/>
+
+    <SolidColorBrush x:Key="RowBackgroundBrush1" Color="#444444"/>
+    <SolidColorBrush x:Key="RowBackgroundBrush2" Color="#555555"/>
+    <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="#333333"/>
+    <SolidColorBrush x:Key="HeaderForegroundBrush" Color="#D3D3D3"/>
+
+    <SolidColorBrush x:Key="OverallBackground" Color="#2F2F2F"/>
+    <SolidColorBrush x:Key="ChipColor" Color="Gray"/>
+
+</ResourceDictionary>

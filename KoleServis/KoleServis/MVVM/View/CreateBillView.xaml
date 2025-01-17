@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              xmlns:component="clr-namespace:KoleServis.MVVM.View.Components"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="550" d:DesignWidth="1300" Background="White">
+             d:DesignHeight="550" d:DesignWidth="1300" >
     <Grid x:Name="CreateBillGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.6*"/>
@@ -89,8 +89,6 @@
             </Grid.RowDefinitions>
             <DataGrid Grid.Row="0" ItemsSource="{Binding ItemsBill}" SelectedItem="{Binding SelectedItemBill}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-
-                    <!-- Kolona za naziv artikla -->
                     <DataGridTextColumn Width="0.3*" Header="{DynamicResource Title}" Binding="{Binding Naziv}" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
@@ -101,17 +99,15 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <!-- Kolona za cenu po komadu -->
                     <DataGridTextColumn Width="0.2*" Header="{DynamicResource Price}" Binding="{Binding Cijena}" >
-                         <DataGridTextColumn.ElementStyle>
-                             <Style TargetType="TextBlock">
-                                 <Setter Property="TextWrapping" Value="Wrap" />
-                                 <Setter Property="VerticalAlignment" Value="Center" />
-                                 <Setter Property="HorizontalAlignment" Value="Center" />
-                             </Style>
-                         </DataGridTextColumn.ElementStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <!-- Kolona za brojač količine -->
                     <DataGridTemplateColumn Width="0.2*" Header="{DynamicResource Quantity}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -122,21 +118,21 @@
                                         <ColumnDefinition Width="0.2*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <!-- Dugme za smanjenje -->
-                                    <Button Content="-" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="30" Command="{Binding DataContext.DecreaseCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Grid.Column="0" />
+                                    <Button  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="30" Command="{Binding DataContext.DecreaseCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Grid.Column="0" >
+                                        <materialDesign:PackIcon Kind="MinusThick" />
+                                    </Button>
 
-                                    <!-- Prikaz trenutne količine -->
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Kolicina}" Width="50" Grid.Column="1" TextAlignment="Center" />
 
-                                    <!-- Dugme za povećanje -->
-                                    <Button Content="+" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="30" Command="{Binding DataContext.IncreaseCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Grid.Column="2" />
+                                    <Button FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="30" Command="{Binding DataContext.IncreaseCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Grid.Column="2" >
+                                        <materialDesign:PackIcon Kind="Plus" />
+                                    </Button>
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
 
-                    <!-- Kolona za ukupnu cijenu (cijena * količina) -->
                     <DataGridTextColumn Width="0.2*" Header="{DynamicResource OverallPrice}" Binding="{Binding UkupnaCijena, StringFormat=F2}" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
@@ -146,14 +142,12 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-
-                    <!-- Kolona za dugme za brisanje -->
-                    <DataGridTemplateColumn Width="0.15*" Header="{DynamicResource DeleteItem}">
+                    <DataGridTemplateColumn Width="0.1*" Header="{DynamicResource DeleteItem}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Background="Transparent"
-                                        Foreground="Black" BorderBrush="Transparent">
-                                    <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Width="30" Height="30" />
+                                        Foreground="Red" BorderBrush="Transparent" Padding="0">
+                                    <materialDesign:PackIcon Kind="DeleteOutline" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30" />
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -211,7 +205,7 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <TextBlock Text="{DynamicResource SelectDateAndTime}" MaxWidth="90" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                            <DatePicker Padding="10" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
+                            <DatePicker Padding="10" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" Background="Black"/>
                             <materialDesign:TimePicker Padding="10" Is24Hours="True" 
                            SelectedTime="{Binding SelectedTime, Mode=TwoWay}" />
                         </StackPanel>
@@ -228,27 +222,33 @@
                                       IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                       Style="{StaticResource CommandButton}"
                                     materialDesign:HintAssist.FontFamily="{DynamicResource font}"
-                                      ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                          Margin="10,10,10,0">
-                                    <TextBlock Text="{DynamicResource CreateBill}" Style="{StaticResource CommandText}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ReceiptTextPlusOutline" />
+                                        <TextBlock Text="{DynamicResource CreateBill}" Style="{StaticResource CommandText}"/>
+                                    </StackPanel>
                                 </Button>
                                 <Button materialDesign:ButtonAssist.CornerRadius="25"
                                      Command="{Binding PrintCommand}"
                                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                        Style="{StaticResource CommandButton}"
                                      materialDesign:HintAssist.FontFamily="{DynamicResource font}"
-                                       ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                           Margin="10,10,10,0">
-                                    <TextBlock Text="{DynamicResource Print}" Style="{StaticResource CommandText}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="PrinterOutline" />
+                                        <TextBlock Text="{DynamicResource Print}" Style="{StaticResource CommandText}" />
+                                    </StackPanel>
                                 </Button>
                                 <Button materialDesign:ButtonAssist.CornerRadius="25"
                                      Command="{Binding PreviewCommand}"
                                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                        Style="{StaticResource CommandButton}"
                                      materialDesign:HintAssist.FontFamily="{DynamicResource font}"
-                                       ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                           Margin="10,10,10,0">
-                                    <TextBlock Text="{DynamicResource Preview}" Style="{StaticResource CommandText}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="PrinterEye" />
+                                        <TextBlock Text="{DynamicResource Preview}" Style="{StaticResource CommandText}" />
+                                    </StackPanel>
                                 </Button>
                             </StackPanel>
                         </Grid>

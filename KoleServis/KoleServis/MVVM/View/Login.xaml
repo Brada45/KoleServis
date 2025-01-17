@@ -24,7 +24,7 @@
                    VerticalAlignment="Center" />
         </Grid>
 
-        <Grid Grid.Column="1" Background="White">
+        <Grid Grid.Column="1" Background="{DynamicResource OverallBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="Auto"/>
@@ -80,7 +80,7 @@
 
             </Grid>
             <Grid Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TextBlock Foreground="{Binding WarrningColor}" 
+                <TextBlock Foreground="{Binding WarrningColor}"
                             Text="{DynamicResource Warrning}"
            TextWrapping="Wrap" 
            HorizontalAlignment="Center" 
@@ -90,9 +90,11 @@
                 <Button materialDesign:ButtonAssist.CornerRadius="25"
                      Command="{Binding LoginCommand}"
                      Style="{StaticResource CommandButton}"
-                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                      Margin="100,0,100,0">
-                    <TextBlock Text="{DynamicResource LoginSmall}" Style="{StaticResource CommandText}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Login" />
+                        <TextBlock Text="{DynamicResource LoginSmall}" Style="{StaticResource CommandText}"/>
+                    </StackPanel>
                 </Button>
                 <ToggleButton 
        HorizontalAlignment="Right" VerticalAlignment="Bottom"

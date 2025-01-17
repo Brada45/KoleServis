@@ -1,18 +1,4 @@
-﻿C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.i.cs
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\App.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\BillsView.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\Components\BillComponent.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\Components\ItemComponent.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\ConfirmWindow.xaml;;
+﻿
+
 FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\CreateBillView.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\CustomMessageBox.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\DocumentViewewWindow.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\ItemsView.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\ManagerMainView.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\ServicesView.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\SettingsView.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\SuccessfulAction.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\UnseccessfulAction.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\WorkerMainView.xaml;;
-FC:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\MVVM\View\WorkersView.xaml;;
 

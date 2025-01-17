@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <Grid>
+            <Grid Background="{DynamicResource OverallBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.1*"/>
                     <RowDefinition Height="0.8*"/>
@@ -76,7 +76,7 @@
                 </DataGrid>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" Background="{DynamicResource OverallBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="0.1*"/>
@@ -107,10 +107,12 @@ TextChanged="TextBox_TextChanged"/>
                     <Button materialDesign:ButtonAssist.CornerRadius="25"
                     Command="{Binding AddCommand}"
                  Style="{StaticResource CommandButton}"
-                 ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                     Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Add}" Style="{StaticResource CommandText}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Plus" />
+                            <TextBlock Text="{DynamicResource Add}" Style="{StaticResource CommandText}" />
+                        </StackPanel>
                     </Button>
                 </Grid>
                 <Grid>
@@ -119,9 +121,11 @@ TextChanged="TextBox_TextChanged"/>
                       IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                       Style="{StaticResource CommandButton}"
                             materialDesign:HintAssist.FontFamily="{DynamicResource font}"
-                      ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                          Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Update}" Style="{StaticResource CommandText}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Refresh" />
+                            <TextBlock Text="{DynamicResource Update}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
                 </Grid>
                 <Grid>
@@ -129,9 +133,12 @@ TextChanged="TextBox_TextChanged"/>
                     Command="{Binding DeleteCommand}"
                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                      Style="{StaticResource CommandButton}"
-                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners" materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+                      materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                         Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Delete}" Style="{StaticResource CommandText}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="DeleteOutline" />
+                            <TextBlock Text="{DynamicResource Delete}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
 
                 </Grid>
@@ -140,9 +147,12 @@ TextChanged="TextBox_TextChanged"/>
                     Command="{Binding ClearCommand}"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource CommandButton}"
-                  ToolTip="MaterialDesignRaisedDarkButton with Round Corners" materialDesign:HintAssist.FontFamily="{DynamicResource font}"
+                  materialDesign:HintAssist.FontFamily="{DynamicResource font}"
                      Margin="100,0,100,0">
-                        <TextBlock Text="{DynamicResource Clear}" Style="{StaticResource CommandText}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BackspaceOutline" />
+                            <TextBlock Text="{DynamicResource Clear}" Style="{StaticResource CommandText}" />
+                        </StackPanel>
                     </Button>
 
                 </Grid>

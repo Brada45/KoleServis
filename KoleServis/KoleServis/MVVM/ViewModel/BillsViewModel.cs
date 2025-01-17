@@ -15,20 +15,12 @@ namespace KoleServis.MVVM.ViewModel
 {
     public class BillsViewModel:Core.ViewModel
     {
-        public ObservableCollection<Racun> _bills { get; set; }
         public ObservableCollection<IResource> _resources { get; set; }
+        public ObservableCollection<Racun> _bills { get; set; }
+
         private FindService _FindService;
         private Racun _selectedBill;
-        public Racun SelectedBill
-        {
-            get { return _selectedBill ; }
-            set
-            {
-                _selectedBill = value;
-                OnPropertyChanged();
-                OnSelecetedBillChanged();
-            }
-        }
+
         public ObservableCollection<IResource> Items
         {
             get => _resources;
@@ -47,6 +39,17 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(Bills));
             }
         }
+        public Racun SelectedBill
+        {
+            get { return _selectedBill ; }
+            set
+            {
+                _selectedBill = value;
+                OnPropertyChanged();
+                OnSelecetedBillChanged();
+            }
+        }
+       
 
         public BillsViewModel(INavigationService navigation)
         {

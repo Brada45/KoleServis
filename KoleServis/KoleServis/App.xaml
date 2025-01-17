@@ -18,9 +18,7 @@
                 <ResourceDictionary Source="Resources/Fonts-arial-dic.xaml"/>
                 <ResourceDictionary Source="Resources/FontWeight/FontWeight-normal-dic.xaml"/>
                 <ResourceDictionary Source="Resources/FontStyle/FontStyle-normal-dic.xaml"/>
-                
                 <ResourceDictionary Source="Resources/Colors/Colors-orange-dic.xaml"/>
-                
                 <ResourceDictionary Source="Resources/Colors/ButtonStyle.xaml"/>
                 <ResourceDictionary Source="Resources/Colors/ChipStyle.xaml"/>
                 <ResourceDictionary Source="Resources/Colors/DataGridStyle.xaml"/>

@@ -15,12 +15,37 @@ namespace KoleServis.MVVM.ViewModel
 {
     public class ServicesViewModel:Core.ViewModel
     {
+
+        public RelayCommand AddCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand UpdateCommand { get; set; }
+        public RelayCommand ClearCommand { get; set; }
+        public RelayCommand SearchCommand { get; set; }
+
+
+        public ObservableCollection<Usluga> OriginalItems { get; set; }
         public ObservableCollection<Usluga> _items { get; set; }
-        private int greatestID=0;
+
+
         public INavigationService _navigation;
+        public ConfirmWindowViewModel confirmWindowViewModel;
         private Base64Service _Base64Service;
         private FindService _FindService;
         private Usluga _selectedItem;
+        private string _title;
+        private decimal _price;
+        private string _searchItem;
+
+
+        public ObservableCollection<Usluga> Items
+        {
+            get { return _items; }
+            set
+            {
+                _items = value;
+                OnPropertyChanged(nameof(Items));
+            }
+        }
         public Usluga SelectedItem
         {
             get { return _selectedItem; }
@@ -30,15 +55,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
                 if (SelectedItem != null)
                     OnSelecetedUslugaChanged();
-            }
-        }
-        public ObservableCollection<Usluga> Items
-        {
-            get { return _items; }
-            set
-            {
-                _items = value;
-                OnPropertyChanged(nameof(Items));
             }
         }
 
@@ -51,9 +67,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private string _title;
-        private decimal _price;
-        private string _searchItem;
 
         public string Title
         {
@@ -82,14 +95,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        public RelayCommand AddCommand { get; set; }
-        public RelayCommand DeleteCommand { get; set; }
-        public RelayCommand UpdateCommand { get; set; }
-        public RelayCommand ClearCommand { get; set; }
-        public RelayCommand SearchCommand { get; set; }
-
-        public ObservableCollection<Usluga> OriginalItems { get; set; }
-        public ConfirmWindowViewModel confirmWindowViewModel;
 
 
         public ServicesViewModel()
@@ -238,8 +243,6 @@ namespace KoleServis.MVVM.ViewModel
 
                 foreach (var item in items)
                 {
-                    if(item.IdUsluga>greatestID)
-                        greatestID = item.IdUsluga;
                     if (item.Obrisano == 0)
                         OriginalItems.Add(item);
                 }

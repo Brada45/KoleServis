@@ -11,14 +11,16 @@ namespace KoleServis.MVVM.ViewModel
 {
     public class ConfirmWindowViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private ICommand _confirmCommand;
-        public ICommand ConfirmCommand => _confirmCommand ??= new RelayCommand(ConfirmAction, CanExecuteCommand);
 
         private ICommand _rejectCommand;
+        private ICommand _confirmCommand;
+
+        public ICommand ConfirmCommand => _confirmCommand ??= new RelayCommand(ConfirmAction, CanExecuteCommand);
+
         public ICommand RejectCommand => _rejectCommand ??= new RelayCommand(RejectAction, CanExecuteCommand);
 
+        
+        public event PropertyChangedEventHandler PropertyChanged;
         public Action<bool> Result { get; set; }
         public Action CloseWindow { get; set; }
 

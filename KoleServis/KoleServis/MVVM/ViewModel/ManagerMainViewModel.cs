@@ -12,9 +12,31 @@ namespace KoleServis.MVVM.ViewModel
 {
     public class ManagerMainViewModel:Core.ViewModel
     {
-        
-        public INavigationService _navigation;
 
+        public RelayCommand NavigateToBillsCommand { get; set; }
+        public RelayCommand NavigateToSettingsViewCommand { get; set; }
+        public RelayCommand NavigateToWorkersViewCommand { get; set; }
+        public RelayCommand NavigateToServicesViewCommand { get; set; }
+        public RelayCommand NavigateToItemsViewCommand { get; set; }
+
+
+        public INavigationService _navigation;
+        private Osoba Person { get; set; }
+        private ChangeFontService _changeFontService;
+        private ChangeBoldItalicService _changeBoldItalicService;
+        private ChangeColorService _changeColorService;
+        private FindService _findService;
+
+
+        public bool IsBillsButtonEnabled { get; set; } = false;
+        public bool IsWorkersButtonEnabled { get; set; } = true;
+        public bool IsServicesButtonEnabled { get; set; } = true;
+        public bool IsItemsButtonEnabled { get; set; } = true;
+        public bool IsSettingsButtonEnabled { get; set; } = true;
+        private bool _isToggled;
+        private string _ime;
+        private string _selectedButton;
+        private string _letter;
         public INavigationService Navigation
         {
             get => _navigation;
@@ -24,7 +46,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private bool _isToggled;
         public bool IsToggled
         {
             get => _isToggled;
@@ -34,9 +55,7 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(IsToggled));
             }
         }
-
-        private string _ime;
-        public String Ime
+        public string Ime
         {
             get => _ime;
             set
@@ -46,8 +65,7 @@ namespace KoleServis.MVVM.ViewModel
             }
         }
 
-        private string _letter;
-        public String Letter
+        public string Letter
         {
             get=> _letter;
             set
@@ -56,36 +74,18 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(Letter));
             }
         }
-        private string _selectedButton;
 
-    public string SelectedButton
-    {
-        get => _selectedButton;
-        set
+        public string SelectedButton
         {
-            _selectedButton = value;
-            OnPropertyChanged(nameof(SelectedButton));
+            get => _selectedButton;
+            set
+            {
+                _selectedButton = value;
+                OnPropertyChanged(nameof(SelectedButton));
+            }
         }
-    }
 
-        private Osoba Person { get; set; }
-
-        public RelayCommand NavigateToBillsCommand { get; set; }
-        public RelayCommand NavigateToSettingsViewCommand { get; set; }
-        public RelayCommand NavigateToWorkersViewCommand { get; set; }
-        public RelayCommand NavigateToServicesViewCommand { get; set; }
-        public RelayCommand NavigateToItemsViewCommand {  get; set; }
-        public bool IsBillsButtonEnabled { get; set; } = false;
-        public bool IsWorkersButtonEnabled { get; set; } = true;
-        public bool IsServicesButtonEnabled { get; set; } = true;
-        public bool IsItemsButtonEnabled { get; set; } = true;
-        public bool IsSettingsButtonEnabled { get; set; } = true;
-
-
-        private ChangeFontService _changeFontService;
-        private ChangeBoldItalicService _changeBoldItalicService;
-        private ChangeColorService _changeColorService;
-        private FindService _findService;
+        
 
 
         public ManagerMainViewModel(INavigationService navigation)

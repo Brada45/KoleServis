@@ -58,7 +58,7 @@
     <System:String x:Key="BillNumber">Broj racuna</System:String>
     <System:String x:Key="TotalPayment">Ukupno za naplatu</System:String>
     <System:String x:Key="Preview">Pogledaj fakturu</System:String>
-
+    <System:String x:Key="Info">*sve cijene su u konvertibilnim markama</System:String>
 
 
 </ResourceDictionary>

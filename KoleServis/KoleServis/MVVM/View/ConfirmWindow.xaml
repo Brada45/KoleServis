@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="ConfirmWindow" Height="200" Width="400">
-    <Grid>
+    <Grid Background="{DynamicResource OverallBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="0.2*"/>

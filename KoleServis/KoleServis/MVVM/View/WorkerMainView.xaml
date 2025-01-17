@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KoleServis.MVVM.View"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-            d:DesignHeight="700" d:DesignWidth="800" Background="White">
+            d:DesignHeight="700" d:DesignWidth="800" Background="{DynamicResource OverallBackground}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
@@ -28,22 +28,25 @@
                 <StackPanel>
                     <Button
                          Command="{Binding Path=NavigateToBillsCommand}"
-                         VerticalAlignment="Top" HorizontalAlignment="Stretch"
                         IsEnabled="{Binding IsCreateBillButonEnabled}"
-                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
                     >
-                        <TextBlock Text="{DynamicResource CreateBills}" Style="{StaticResource CommandText}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ReceiptTextPlusOutline" />
+                            <TextBlock Text="{DynamicResource CreateBills}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
                     <Button
                         Command="{Binding NavigateToSettingsViewCommand}"
-                        VerticalAlignment="Top" HorizontalAlignment="Stretch"
                         IsEnabled="{Binding IsSettingsButtonEnabled}"
-                        ToolTip="MaterialDesignFlatSecondaryMidBgButton"
                     >
-                        <TextBlock Text="{DynamicResource Settings}" Style="{StaticResource CommandText}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CogOutline" />
+                            <TextBlock Text="{DynamicResource Settings}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
 
                 </StackPanel>
+                <Image Source="Resources/logo.png" VerticalAlignment="Bottom"/>
             </Grid>
             <ContentControl Grid.Column="1" Content="{Binding Path=Navigation.CurrentViewMain}"/>
 

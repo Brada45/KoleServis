@@ -16,11 +16,37 @@ namespace KoleServis.MVVM.ViewModel
     public class WorkersViewModel:Core.ViewModel
     {
 
+        public RelayCommand AddCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand UpdateCommand { get; set; }
+        public RelayCommand ClearCommand { get; set; }
         public ObservableCollection<Osoba> _persons { get; set; }
+
+
+        public ConfirmWindowViewModel confirmWindowViewModel;
         public INavigationService _navigation;
         private Base64Service _Base64Service;
         private FindService _FindService;
         private Osoba _selectedPerson;
+
+
+        private string _username;
+        private string _name;
+        private string _surname;
+        private string _password;
+        private string _confirmPassword;
+        private bool _editUsername;
+
+
+        public ObservableCollection<Osoba> Persons
+        {
+            get { return _persons; }
+            set
+            {
+                _persons = value;
+                OnPropertyChanged(nameof(Persons));
+            }
+        }
         public Osoba SelectedPerson
         {
             get { return _selectedPerson; }
@@ -30,15 +56,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
                 if(SelectedPerson != null)
                     OnSelecetedOsobaChanged();
-            }
-        }
-        public ObservableCollection<Osoba> Persons
-        {
-            get { return _persons; }
-            set
-            {
-                _persons = value;
-                OnPropertyChanged(nameof(Persons));
             }
         }
 
@@ -51,12 +68,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private string _username;
-        private string _name;
-        private string _surname;
-        private string _password;
-        private string _confirmPassword;
-        private bool _editUsername;
 
         public string Username
         {
@@ -116,11 +127,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        public RelayCommand AddCommand { get; set; }
-        public RelayCommand DeleteCommand { get; set; }
-        public RelayCommand UpdateCommand { get; set; }
-        public RelayCommand ClearCommand { get; set; }
-        public ConfirmWindowViewModel confirmWindowViewModel;
 
         public WorkersViewModel()
         {
@@ -199,6 +205,9 @@ namespace KoleServis.MVVM.ViewModel
                     }
                 }
             };
+
+            var confirmWindow = new ConfirmWindow(confirmWindowViewModel.Result);
+            confirmWindow.ShowDialog();
         }
         private void UpdatePerson()
         {

@@ -4,6 +4,14 @@
     <SolidColorBrush x:Key="ButtonForegroundBrush" Color="Black"/>
     <SolidColorBrush x:Key="ButtonBorderBrush" Color="DarkOrange"/>
     <SolidColorBrush x:Key="ButtonForegroundColor" Color="Black"/>
-
     <SolidColorBrush x:Key="GridColor" Color="#008080"/>
+
+    <SolidColorBrush x:Key="RowBackgroundBrush1" Color="#20B2AA"/>
+    <SolidColorBrush x:Key="RowBackgroundBrush2" Color="#5F9EA0"/>
+    <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="#008B8B"/>
+    <SolidColorBrush x:Key="HeaderForegroundBrush" Color="#4682B4"/>
+
+    <SolidColorBrush x:Key="OverallBackground" Color="White"/>
+    <SolidColorBrush x:Key="ChipColor" Color="#008080"/>
+
 </ResourceDictionary>

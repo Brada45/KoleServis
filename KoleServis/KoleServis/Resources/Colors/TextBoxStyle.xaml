@@ -6,6 +6,5 @@
         <Setter Property="FontFamily" Value="{DynamicResource font}" />
         <Setter Property="FontWeight" Value="{DynamicResource Weight}" />
         <Setter Property="FontStyle" Value="{DynamicResource Style}" />
-
     </Style>
 </ResourceDictionary>

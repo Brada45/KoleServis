@@ -20,14 +20,32 @@ namespace KoleServis.MVVM.ViewModel
     }
     public class SettingsViewModel: Core.ViewModel
     {
+
+
+        public RelayCommand UpdateCommand { get; set; }
+        public RelayCommand ClearCommand { get; set; }
+
+
+        private ObservableCollection<RadioItem> _backupRadioItems;
+        private ObservableCollection<RadioItem> _backupRadioFonts;
+        private ObservableCollection<RadioItem> _backupRadioLanguage;
         private ObservableCollection<RadioItem> _radioItems;
         private ObservableCollection<RadioItem> _radioFonts;
+        private ObservableCollection<RadioItem> _radioLanguage;
+
 
         private FindService _findService;
         private RadioItem _selectedRadioItem;
         private RadioItem _selectedRadioFont;
         private Osoba person;
         private Base64Service _base64Service;
+
+        private string _name;
+        private string _surname;
+        private string _password;
+        private string _confirmPassword;
+        private bool _boldChecked;
+        private bool _italicChecked;
 
         public ObservableCollection<RadioItem> RadioItems
         {
@@ -47,7 +65,15 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(RadioFonts));
             }
         }
-
+        public ObservableCollection<RadioItem> RadioLanguage
+        {
+            get => _radioLanguage;
+            set
+            {
+                _radioLanguage = value;
+                OnPropertyChanged(nameof(RadioItems));
+            }
+        }
         public RadioItem SelectedRadioItem
         {
             get=>_selectedRadioItem;
@@ -67,21 +93,6 @@ namespace KoleServis.MVVM.ViewModel
             }
         }
 
-        private ObservableCollection<RadioItem> _radioLanguage;
-
-        public ObservableCollection<RadioItem> RadioLanguage
-        {
-            get => _radioLanguage;
-            set
-            {
-                _radioLanguage = value;
-                OnPropertyChanged(nameof(RadioItems));
-            }
-        }
-
-        private bool _boldChecked;
-        private bool _italicChecked;
-
         public bool BoldChecked
         {
             get => _boldChecked;
@@ -100,11 +111,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(ItalicChecked));
             }
         }
-        private string _name;
-        private string _surname;
-        private string _password;
-        private string _confirmPassword;
-
         public string Name
         {
             get => _name;
@@ -142,11 +148,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(ConfirmPassword));
             }
         }
-        public RelayCommand UpdateCommand { get; set; }
-        public RelayCommand ClearCommand { get; set; }
-        private ObservableCollection<RadioItem> _backupRadioItems;
-        private ObservableCollection<RadioItem> _backupRadioFonts;
-        private ObservableCollection<RadioItem> _backupRadioLanguage;
 
         public SettingsViewModel()
         {
@@ -286,7 +287,6 @@ namespace KoleServis.MVVM.ViewModel
             ItalicChecked = italic;
         }
 
-        // Metoda za postavljanje selektovanog elementa
         private void SetDefaultCheckedItem(Tema theme)
         {
             var itemToCheck = _radioItems.FirstOrDefault(item => item.Name == theme.Boja);
@@ -300,7 +300,6 @@ namespace KoleServis.MVVM.ViewModel
             return _radioFonts.FirstOrDefault(item => item.IsChecked);
         }
 
-        // Metoda za postavljanje selektovanog elementa
         private void SetDefaultCheckedFont(Tema theme)
         {
             var itemToCheck = _radioFonts.FirstOrDefault(item => item.Name == theme.Font);
@@ -314,7 +313,6 @@ namespace KoleServis.MVVM.ViewModel
             return _radioLanguage.FirstOrDefault(item => item.IsChecked);
         }
 
-        // Metoda za postavljanje selektovanog elementa
         private void SetDefaultCheckedLanguage(Jezik lang)
         {
             var itemToCheck = _radioLanguage.FirstOrDefault(item => item.Name ==lang.Naziv);

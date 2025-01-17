@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:KoleServis.MVVM.View"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-            d:DesignHeight="450" d:DesignWidth="800" Background="White">
+            d:DesignHeight="450" d:DesignWidth="800" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0"  Background="{DynamicResource GridColor}">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="{DynamicResource ChipColor}"   ClipToBounds="True">
             <materialDesign:Chip
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Left"
@@ -20,7 +20,7 @@
                 <TextBlock Text="{Binding Ime}" Style="{StaticResource CommandText}"/>
             </materialDesign:Chip>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Background="{DynamicResource OverallBackground}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="2*"/>
@@ -29,51 +29,52 @@
                 <StackPanel>
                     <Button
     Command="{Binding NavigateToBillsCommand}"
-    VerticalAlignment="Top"
-    HorizontalAlignment="Stretch"
-    ToolTip="Bills Button"
     IsEnabled="{Binding IsBillsButtonEnabled}" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ReceiptTextOutline"/>
                         <TextBlock Text="{DynamicResource Bills}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
 
                     <Button
-    Command="{Binding NavigateToWorkersViewCommand}"
-    VerticalAlignment="Top"
-    HorizontalAlignment="Stretch"
-    ToolTip="Workers Button"
-    IsEnabled="{Binding IsWorkersButtonEnabled}" >
-                        <TextBlock Text="{DynamicResource Workers}" Style="{StaticResource CommandText}"/>
+                        Command="{Binding NavigateToWorkersViewCommand}"
+                        IsEnabled="{Binding IsWorkersButtonEnabled}" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountHardHatOutline" />
+                            <TextBlock Text="{DynamicResource Workers}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
 
                     <Button
-    Command="{Binding NavigateToServicesViewCommand}"
-    VerticalAlignment="Top"
-    HorizontalAlignment="Stretch"
-    ToolTip="Services Button"
-    IsEnabled="{Binding IsServicesButtonEnabled}" >
-                        <TextBlock Text="{DynamicResource Services}" Style="{StaticResource CommandText}"/>
+                        Command="{Binding NavigateToServicesViewCommand}"
+                        IsEnabled="{Binding IsServicesButtonEnabled}" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="WrenchOutline" />
+                            <TextBlock Text="{DynamicResource Services}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
 
                     <Button
-    Command="{Binding NavigateToItemsViewCommand}"
-    VerticalAlignment="Top"
-    HorizontalAlignment="Stretch"
-    ToolTip="Items Button"
-    IsEnabled="{Binding IsItemsButtonEnabled}" >
-                        <TextBlock Text="{DynamicResource Items}" Style="{StaticResource CommandText}"/>
+                        Command="{Binding NavigateToItemsViewCommand}"
+                        IsEnabled="{Binding IsItemsButtonEnabled}" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CarBattery" />
+                            <TextBlock Text="{DynamicResource Items}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
 
                     <Button
-    Command="{Binding NavigateToSettingsViewCommand}"
-    VerticalAlignment="Top"
-    HorizontalAlignment="Stretch"
-    ToolTip="Settings Button"
-    IsEnabled="{Binding IsSettingsButtonEnabled}" >
-                        <TextBlock Text="{DynamicResource Settings}" Style="{StaticResource CommandText}"/>
+                        Command="{Binding NavigateToSettingsViewCommand}"
+                        IsEnabled="{Binding IsSettingsButtonEnabled}" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CogOutline" />
+                            <TextBlock Text="{DynamicResource Settings}" Style="{StaticResource CommandText}"/>
+                        </StackPanel>
                     </Button>
 
 
                 </StackPanel>
+                <Image Source="Resources/logo.png" VerticalAlignment="Bottom"/>
             </Grid>
             <ContentControl Grid.Column="1" Content="{Binding Path=Navigation.CurrentViewMain}"/>
 

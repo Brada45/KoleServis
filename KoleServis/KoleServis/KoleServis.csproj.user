@@ -120,6 +120,9 @@
     <Page Update="Resources\Colors\Colors-blue-dic.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\Colors\Colors-dark-dic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\Colors\Colors-gray-dic.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -127,6 +130,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Colors\DataGridStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\GridStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Colors\RadioButtonStyle.xaml">

@@ -59,6 +59,7 @@
     <System:String x:Key="BillNumber">Bill number</System:String>
     <System:String x:Key="TotalPayment">Total for payment</System:String>
     <System:String x:Key="Preview">Preview</System:String>
+    <System:String x:Key="Info">*all prices are in BAM</System:String>
 
 
 </ResourceDictionary>

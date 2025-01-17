@@ -383,3 +383,5 @@ C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debu
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\MVVM\View\DocumentViewewWindow.g.cs
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\MVVM\View\DocumentViewewWindow.baml
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\Resources\Colors\TextBlockStyle.baml
+C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\Resources\Colors\Colors-dark-dic.baml
+C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\Resources\Colors\GridStyle.baml

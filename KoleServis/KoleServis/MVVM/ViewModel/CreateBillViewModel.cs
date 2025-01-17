@@ -28,17 +28,66 @@ namespace KoleServis.MVVM.ViewModel
 {
     class CreateBillViewModel:Core.ViewModel
     {
+
+        public RelayCommand ClearCommand { get; set; }
+        public RelayCommand SearchCommand { get; set; }
+        public RelayCommand IncreaseCommand { get; set; }
+        public RelayCommand PreviewCommand { get; set; }
+        public RelayCommand DecreaseCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand CreateCommand { get; set; }
+        public RelayCommand PrintCommand { get; set; }
         public ObservableCollection<ItemComponentViewModel> Dijelovi { get; set; }
         public ObservableCollection<ItemComponentViewModel> OriginalDijelovi { get; set; }
         public ObservableCollection<ItemComponentViewModel> ItemsBill { get; set; }
-
-        private FindService _FindService { get; set; }
-
-        public ItemComponentViewModel _selectedItem { get; set; }
-        public ItemComponentViewModel _selectedItemBill { get; set; }
+        private ObservableCollection<Kupac> _customers;
         public ObservableCollection<string> _categories { get; set; }
 
+
+        private FindService _FindService { get; set; }
+        public ItemComponentViewModel _selectedItem { get; set; }
+        public ItemComponentViewModel _selectedItemBill { get; set; }
+        private BitmapImage _base64Image;
+        private Kupac _selectedCustomer;
+        private DateTime? _selectedDate;
+        private DateTime? _selectedTime;
+        private Racun billTmp;
+        private Osoba osoba { get; set; }
+        public ConfirmWindowViewModel confirmWindowViewModel;
+
         private bool _itemsChecked;
+        public string _selectedCategory { get; set; }
+        private string _title;
+        private decimal _price;
+        private int _quantity;
+        private double _priceOver;
+        private string _defaultImage { get; set; }
+        private byte[] array { get; set; }
+        private string _defaultImageMechanic { get; set; }
+        private byte[] arrayMechanic { get; set; }
+        private string _searchItem;
+        private string _number;
+        private string _customerName;
+
+
+        public ObservableCollection<String> Categories
+        {
+            get => _categories;
+            set
+            {
+                _categories = value;
+                OnPropertyChanged(nameof(Categories));
+            }
+        }
+        public ObservableCollection<Kupac> Customers
+        {
+            get => _customers;
+            set
+            {
+                _customers = value;
+                OnPropertyChanged(nameof(Customers));
+            }
+        }
 
         public bool ItemsChecked
         {
@@ -74,31 +123,6 @@ namespace KoleServis.MVVM.ViewModel
             }
         }
 
-
-
-        public ObservableCollection<String> Categories
-        {
-            get => _categories;
-            set
-            {
-                _categories = value;
-                OnPropertyChanged(nameof(Categories));
-            }
-        }
-        public string _selectedCategory { get; set; }
-        public string SelectedCategory
-        {
-            get => _selectedCategory;
-            set
-            {
-                _selectedCategory = value;
-                OnPropertyChanged(nameof(SelectedCategory));
-            }
-        }
-        private string _title;
-        private decimal _price;
-        private int _quantity;
-        private BitmapImage _base64Image;
         public BitmapImage SelectedImage
         {
             get => _base64Image;
@@ -106,6 +130,45 @@ namespace KoleServis.MVVM.ViewModel
             {
                 _base64Image = value;
                 OnPropertyChanged(nameof(SelectedImage));
+            }
+        }
+        public Kupac SelectedCustomer
+        {
+            get => _selectedCustomer;
+            set
+            {
+                _selectedCustomer = value;
+                OnPropertyChanged(nameof(SelectedCustomer));
+                CustomerChanged();
+            }
+        }
+        public DateTime? SelectedDate
+        {
+            get => _selectedDate;
+            set
+            {
+                _selectedDate = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public DateTime? SelectedTime
+        {
+            get => _selectedTime;
+            set
+            {
+                _selectedTime = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string SelectedCategory
+        {
+            get => _selectedCategory;
+            set
+            {
+                _selectedCategory = value;
+                OnPropertyChanged(nameof(SelectedCategory));
             }
         }
         public string Title
@@ -135,7 +198,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private double _priceOver;
         public double PriceOver
         {
             get=>_priceOver;
@@ -145,42 +207,7 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        public RelayCommand ClearCommand {  get; set; }
-        public RelayCommand SearchCommand { get; set; }
-
-        public RelayCommand IncreaseCommand { get; set; }
-        public RelayCommand PreviewCommand { get; set; }
-
-        public RelayCommand DecreaseCommand { get; set; }
-        public RelayCommand DeleteCommand { get; set; }
-        private string _defaultImage { get; set; }
-        private byte[] array { get; set; }
-        private string _defaultImageMechanic { get; set; }
-        private byte[] arrayMechanic { get; set; }
-
-        private string _searchItem;
-
-        private ObservableCollection<Kupac> _customers;
-        private Kupac _selectedCustomer;
-        public Kupac SelectedCustomer
-        {
-            get=> _selectedCustomer;
-            set
-            {
-                _selectedCustomer = value;
-                OnPropertyChanged(nameof(SelectedCustomer));
-                CustomerChanged();
-            }
-        }
-        public ObservableCollection<Kupac> Customers
-        {
-            get => _customers;
-            set
-            {
-                _customers = value;
-                OnPropertyChanged(nameof(Customers));
-            }
-        }
+        
 
         public string SearchItem
         {
@@ -191,31 +218,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
-        private DateTime? _selectedDate;
-        private DateTime? _selectedTime;
-
-        public DateTime? SelectedDate
-        {
-            get => _selectedDate;
-            set
-            {
-                _selectedDate = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public DateTime? SelectedTime
-        {
-            get => _selectedTime;
-            set
-            {
-                _selectedTime = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _customerName;
         public string CustomerName
         {
             get => _customerName;
@@ -226,7 +228,6 @@ namespace KoleServis.MVVM.ViewModel
             }
         }
 
-        private string _number;
         public string Number
         {
             get => _number;
@@ -236,13 +237,8 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        public RelayCommand CreateCommand { get; set; }
-        public RelayCommand PrintCommand { get; set; }
+       
 
-        private Racun billTmp;
-
-        private Osoba osoba {  get; set; }
-        public ConfirmWindowViewModel confirmWindowViewModel;
 
         public CreateBillViewModel()
         {
@@ -535,7 +531,7 @@ namespace KoleServis.MVVM.ViewModel
                 GetCategories();
                 foreach (var item in items)
                 {
-                    if (item.Obrisano == 0)
+                    if (item.Obrisano == 0 && item.Kolicina>=1)
                         OriginalDijelovi.Add(new ItemComponentViewModel { Id = item.IdDio, Naziv = item.Naziv, Cijena = item.Cijena.ToString(), Slika = item.Slika != null ? item.Slika : array, Kolicina = item.Kolicina, idKategorija = item.KategorijaIdKategorija });
 
                 }

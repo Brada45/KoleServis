@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="SuccessfulAction" Height="200" Width="300">
-    <Grid>
+    <Grid   Background="{DynamicResource OverallBackground}">
         <TextBlock Text="{DynamicResource ActionPerformedSuccessfully}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Button  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Height="30" Click="OnOkClicked">
             <TextBlock Text="OK" Style="{StaticResource CommandText}"/>

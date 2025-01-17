@@ -22,21 +22,33 @@ namespace KoleServis.MVVM.ViewModel
     public class ItemsViewModel:Core.ViewModel
     {
 
+        public RelayCommand AddCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand UpdateCommand { get; set; }
+        public RelayCommand ClearCommand { get; set; }
+        public RelayCommand UpdateImageCommand { get; set; }
+        public RelayCommand SearchCommand { get; set; }
+        public RelayCommand ClearCategoryCommand { get; set; }
+
+
         public ObservableCollection<ItemComponentViewModel> Dijelovi { get; set; }
+        public ObservableCollection<string> _categories { get; set; }
+        public ObservableCollection<ItemComponentViewModel> OriginalDijelovi { get; set; }
+        public ConfirmWindowViewModel confirmWindowViewModel;
         private FindService _FindService { get; set; }
-
         public ItemComponentViewModel _selectedItem {  get; set; }
-        public ObservableCollection<string> _categories {  get; set; }
+        private BitmapImage _base64Image;
 
-        public ItemComponentViewModel SelectedItem {
-            get => _selectedItem;
-            set
-            {
-                _selectedItem = value;
-                OnPropertyChanged(nameof(SelectedItem));
-                OnSelectedItemChanged();
-            }
-        }
+        private string _searchItem;
+        private bool _itemsChecked;
+        private string _defaultImage { get; set; }
+        private byte[] array { get; set; }
+        private string _title;
+        private decimal _price;
+        private int _quantity;
+        public string _selectedCategory { get; set; }
+
+
 
         public ObservableCollection<String> Categories
         {
@@ -47,20 +59,16 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(Categories));
             }
         }
-        public string _selectedCategory { get; set; }
-        public string SelectedCategory
-        {
-            get=> _selectedCategory;
+        public ItemComponentViewModel SelectedItem {
+            get => _selectedItem;
             set
             {
-                _selectedCategory = value;
-                OnPropertyChanged(nameof(SelectedCategory));
+                _selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+                OnSelectedItemChanged();
             }
         }
-        private string _title;
-        private decimal _price;
-        private int _quantity;
-        private BitmapImage _base64Image;
+
         public BitmapImage SelectedImage
         {
             get => _base64Image;
@@ -68,6 +76,15 @@ namespace KoleServis.MVVM.ViewModel
             {
                 _base64Image = value;
                 OnPropertyChanged(nameof(SelectedImage));
+            }
+        }
+        public string SelectedCategory
+        {
+            get=> _selectedCategory;
+            set
+            {
+                _selectedCategory = value;
+                OnPropertyChanged(nameof(SelectedCategory));
             }
         }
         public string Title
@@ -97,7 +114,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private string _searchItem;
         public string SearchItem
         {
             get => _searchItem;
@@ -107,7 +123,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(SearchItem));
             }
         }
-        public string _selectedSearchCategory { get; set; }
         public string SelectedSearchCategory
         {
             get => _selectedCategory;
@@ -117,8 +132,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged(nameof(SelectedSearchCategory));
             }
         }
-        private bool _itemsChecked;
-
         public bool ItemsChecked
         {
             get => _itemsChecked;
@@ -131,18 +144,6 @@ namespace KoleServis.MVVM.ViewModel
                 }
             }
         }
-        private string _defaultImage {  get; set; }
-        private byte[] array {  get; set; }
-
-        public RelayCommand AddCommand { get; set; }
-        public RelayCommand DeleteCommand { get; set; }
-        public RelayCommand UpdateCommand { get; set; }
-        public RelayCommand ClearCommand { get; set; }
-        public RelayCommand UpdateImageCommand { get; set; }
-        public RelayCommand SearchCommand { get; set; }
-        public RelayCommand ClearCategoryCommand { get; set; }
-        public ObservableCollection<ItemComponentViewModel> OriginalDijelovi {  get; set; }
-        public ConfirmWindowViewModel confirmWindowViewModel;
 
 
         public ItemsViewModel()

@@ -18,12 +18,20 @@ namespace KoleServis.MVVM.ViewModel
 {
     public class LoginViewModel:Core.ViewModel
     {
-        public INavigationService _navigation;
-        public Base64Service _base64Service;
 
         public RelayCommand LoginCommand { get; }
-        public RelayCommand ChangeLanguageCommand {  get; }
+        public RelayCommand ChangeLanguageCommand { get; }
+
+        public INavigationService _navigation;
+        public Base64Service _base64Service;
         public ChangeLanguageService _changeLanguageService;
+
+
+        private string _username;
+        private string _password;
+        private string _warrning;
+        private bool _isToggled;
+
 
         public INavigationService Navigation
         {
@@ -34,9 +42,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private string _username;
-        private string _password;
-        private string _warrning;
 
         public string Username
         {
@@ -69,7 +74,6 @@ namespace KoleServis.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private bool _isToggled;
         public bool IsToggled
         {
             get => _isToggled;
@@ -83,7 +87,14 @@ namespace KoleServis.MVVM.ViewModel
         public LoginViewModel(INavigationService navigation)
         {
             Navigation = navigation;
-            _warrning = "white";
+            string color=Properties.Settings.Default.color;
+            if (color == "dark")
+            {
+                _warrning = "#2F2F2F";
+            }
+            else {
+                _warrning ="white";
+            }
             _changeLanguageService = new ChangeLanguageService();
             IServiceCollection services = new ServiceCollection();
             LoginCommand = new RelayCommand(async execute => await LoginCheck(),canExecute => true );

@@ -285,6 +285,7 @@ namespace KoleServis.MVVM.ViewModel
             Quantity = 0;
             SelectedCategory=null;
             SelectedImage = null;
+            SelectedItem = null;
         }
         private void UpdateImage()
         {

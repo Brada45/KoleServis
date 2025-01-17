@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\viewmodel\\itemsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\viewmodel\\itemsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\createbillview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -21,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\workersview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\workersview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\itemsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\itemsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\servicesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -42,31 +38,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CustomMessageBox.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\CustomMessageBox.xaml",
               "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\CustomMessageBox.xaml",
               "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\CustomMessageBox.xaml",
               "RelativeToolTip": "KoleServis\\MVVM\\View\\CustomMessageBox.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-17T23:28:46.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-17T23:28:46.642Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ItemsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\ViewModel\\ItemsViewModel.cs",
               "RelativeDocumentMoniker": "KoleServis\\MVVM\\ViewModel\\ItemsViewModel.cs",
               "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\ViewModel\\ItemsViewModel.cs",
               "RelativeToolTip": "KoleServis\\MVVM\\ViewModel\\ItemsViewModel.cs",
-              "ViewState": "AgIAAF8BAAAAAAAAAAA0wHMBAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAQBAAAAAAAAAAAUwBgBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T23:27:53.219Z"
+              "WhenOpened": "2025-01-17T23:27:53.219Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -105,17 +101,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ItemsView.xaml",
-              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ItemsView.xaml",
-              "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\ItemsView.xaml",
-              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ItemsView.xaml",
-              "RelativeToolTip": "KoleServis\\MVVM\\View\\ItemsView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-17T18:23:32.103Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "ServicesView.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ServicesView.xaml",
               "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\ServicesView.xaml",
@@ -126,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "ManagerMainView.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ManagerMainView.xaml",
               "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\ManagerMainView.xaml",

@@ -6,7 +6,9 @@
         mc:Ignorable="d"
              Style="{StaticResource MaterialDesignWindow}"
         
-        Title="Login" Height="700" Width="1300">
+        Title="Kole servis" Height="700" Width="1300"
+        Icon="Resources/logo.png"
+        >
     <Grid>
         
 

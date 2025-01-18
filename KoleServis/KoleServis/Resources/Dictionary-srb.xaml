@@ -3,31 +3,31 @@
     xmlns:System="clr-namespace:System;assembly=System.Runtime">
 
     <System:String x:Key="Login">PRIJAVA</System:String>
-    <System:String x:Key="Username">Korisnicko ime</System:String>
+    <System:String x:Key="Username">Korisničko ime</System:String>
     <System:String x:Key="Password">Lozinka</System:String>
     <System:String x:Key="LoginSmall">Prijavi se</System:String>
-    <System:String x:Key="Warrning">Netacno korisnicko ime ili lozinka</System:String>
+    <System:String x:Key="Warrning">Netačno korisničko ime ili lozinka</System:String>
 
-    <System:String x:Key="Bills">Racuni</System:String>
+    <System:String x:Key="Bills">Računi</System:String>
     <System:String x:Key="Workers">Radnici</System:String>
     <System:String x:Key="Services">Usluge</System:String>
     <System:String x:Key="Items">Dijelovi</System:String>
-    <System:String x:Key="Settings">Podesavanja</System:String>
+    <System:String x:Key="Settings">Podešavanja</System:String>
 
     <System:String x:Key="Customer">Klijent</System:String>
     <System:String x:Key="Date">Datum</System:String>
-    <System:String x:Key="SelectedBill">Odabrani racun</System:String>
+    <System:String x:Key="SelectedBill">Odabrani račun</System:String>
     <System:String x:Key="Price">Cijena</System:String>
     <System:String x:Key="Title">Naziv</System:String>
     <System:String x:Key="TitleName">Naziv</System:String>
 
-    <System:String x:Key="Quantity">Kolicina</System:String>
+    <System:String x:Key="Quantity">Količina</System:String>
     <System:String x:Key="Category">Kategorija</System:String>
-    <System:String x:Key="UpdateImage">Azuriraj sliku</System:String>
+    <System:String x:Key="UpdateImage">Ažuriraj sliku</System:String>
     <System:String x:Key="Add">Dodaj</System:String>
-    <System:String x:Key="Update">Azuriraj</System:String>
-    <System:String x:Key="Delete">Obrisi nalog</System:String>
-    <System:String x:Key="Clear">Obrisi podatke</System:String>
+    <System:String x:Key="Update">Ažuriraj</System:String>
+    <System:String x:Key="Delete">Obriši nalog</System:String>
+    <System:String x:Key="Clear">Obriši podatke</System:String>
     <System:String x:Key="AddedBy">Dodao</System:String>
     <System:String x:Key="Name">Ime</System:String>
     <System:String x:Key="Surname">Prezime</System:String>
@@ -38,13 +38,13 @@
     <System:String x:Key="Bold_">Bold</System:String>
     <System:String x:Key="Italic_">Italic</System:String>
 
-    <System:String x:Key="Reset">Ponisti</System:String>
-    <System:String x:Key="CreateBills">Kreiraj racun</System:String>
+    <System:String x:Key="Reset">Poništi</System:String>
+    <System:String x:Key="CreateBills">Kreiraj račun</System:String>
 
     <System:String x:Key="Search">Pretraga</System:String>
     <System:String x:Key="OverallPrice">Ukupna cijena</System:String>
     <System:String x:Key="SelectedCustomer">Odabrani kupac</System:String>
-    <System:String x:Key="CreateBill">Kreiraj racun</System:String>
+    <System:String x:Key="CreateBill">Kreiraj račun</System:String>
     <System:String x:Key="Print">Printaj</System:String>
     <System:String x:Key="SelectDateAndTime">Odaberite datum i vrijeme</System:String>
     <System:String x:Key="NotFound">Nema podudaranja</System:String>
@@ -52,10 +52,10 @@
 
     <System:String x:Key="Confirm">Potvrdi</System:String>
     <System:String x:Key="Cancel">Odbij</System:String>
-    <System:String x:Key="ActionPerformedSuccessfully">Akcija je uspjesno izvrsena</System:String>
-    <System:String x:Key="ActionPerformedunsuccessfully">Akcija nije uspjesno izvrsena</System:String>
+    <System:String x:Key="ActionPerformedSuccessfully">Akcija je uspjesno izvršena</System:String>
+    <System:String x:Key="ActionPerformedunsuccessfully">Akcija nije uspjesno izvršena</System:String>
     <System:String x:Key="DeleteItem">Obrisi</System:String>
-    <System:String x:Key="BillNumber">Broj racuna</System:String>
+    <System:String x:Key="BillNumber">Broj računa</System:String>
     <System:String x:Key="TotalPayment">Ukupno za naplatu</System:String>
     <System:String x:Key="Preview">Pogledaj fakturu</System:String>
     <System:String x:Key="Info">*sve cijene su u konvertibilnim markama</System:String>

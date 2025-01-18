@@ -18,7 +18,7 @@
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
-                <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundBrush}" />
             </Trigger>
 
             <Trigger Property="IsMouseOver" Value="True">

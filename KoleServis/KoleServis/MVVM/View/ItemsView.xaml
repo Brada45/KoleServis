@@ -46,7 +46,6 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <CheckBox
-                x:Name="OutlinedComboBoxEnabledCheckBox"
                  Content="{DynamicResource Items}"
                  IsChecked="{Binding ItemsChecked}" />
                             <Button
@@ -62,7 +61,13 @@
              IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
              ItemsSource="{Binding Categories}"
             SelectedItem="{Binding SelectedSearchCategory, Mode=TwoWay}"
-             Style="{StaticResource MaterialDesignOutlinedComboBox}" />
+             Style="{StaticResource MaterialDesignOutlinedComboBox}" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="{DynamicResource ListColor}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
                 </StackPanel>
                 <ListBox Grid.Row="1" ItemsSource="{Binding Dijelovi}" SelectedItem="{Binding SelectedItem}" >
@@ -119,11 +124,11 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="{DynamicResource Category}"  Margin="100,10,0,10"/>
                     <ComboBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Text="{DynamicResource Category}"  ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Width="140">
-                          <ComboBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                              <VirtualizingStackPanel />
-                            </ItemsPanelTemplate>
-                          </ComboBox.ItemsPanel>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" Foreground="{DynamicResource ListColor}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
                     </ComboBox>
                 </Grid>
                 <Grid>

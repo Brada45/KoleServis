@@ -63,7 +63,13 @@
                              IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                              ItemsSource="{Binding Categories}"
                             SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
-                             Style="{StaticResource MaterialDesignOutlinedComboBox}" />
+                             Style="{StaticResource MaterialDesignOutlinedComboBox}" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="{DynamicResource ListColor}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
                 </StackPanel>
                 <Grid Grid.Row="1">

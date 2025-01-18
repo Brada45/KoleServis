@@ -13,5 +13,6 @@
 
     <SolidColorBrush x:Key="OverallBackground" Color="#2F2F2F"/>
     <SolidColorBrush x:Key="ChipColor" Color="Gray"/>
+    <SolidColorBrush x:Key="ListColor" Color="#A6A6A6"/>
 
 </ResourceDictionary>

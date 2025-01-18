@@ -18,8 +18,8 @@
 
         <Grid Grid.Column="0">
             <Image Source="Resources\behind_logo.jpeg" Margin="0,-93,-57,-100"/>
-            <Image Source="Resources\logo.png" 
-                   Stretch="Uniform" 
+            <Image Source="Resources\slika.png" 
+                   Stretch="Uniform"
                    HorizontalAlignment="Left" 
                    VerticalAlignment="Center" />
         </Grid>

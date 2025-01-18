@@ -184,7 +184,6 @@ C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\hci prvi\KoleServis\KoleServis\obj\Debug\
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\hci prvi\KoleServis\KoleServis\obj\Debug\net8.0-windows\MVVM\View\Components\BillComponent.baml
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\MVVM\View\Resources\behind_logo.jpeg
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\MVVM\View\Resources\great-britain-flag.png
-C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\MVVM\View\Resources\logo.png
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\MVVM\View\Resources\serbian-flag.png
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\Resources\appsettings.json
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\KoleServis.exe
@@ -385,3 +384,5 @@ C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debu
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\Resources\Colors\TextBlockStyle.baml
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\Resources\Colors\Colors-dark-dic.baml
 C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\obj\Debug\net8.0-windows\Resources\Colors\GridStyle.baml
+C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\MVVM\View\Resources\slika.png
+C:\Users\ksrdj.SRDJAN\OneDrive\Desktop\KoleServis\KoleServis\KoleServis\bin\Debug\net8.0-windows\MVVM\View\Resources\logo.ico

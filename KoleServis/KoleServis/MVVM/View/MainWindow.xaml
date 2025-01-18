@@ -7,7 +7,6 @@
              Style="{StaticResource MaterialDesignWindow}"
         
         Title="Kole servis" Height="700" Width="1300"
-        Icon="Resources/logo.png"
         >
     <Grid>
         

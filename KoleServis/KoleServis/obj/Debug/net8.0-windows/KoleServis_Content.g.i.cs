@@ -10,8 +10,9 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mvvm/view/resources/behind_logo.jpeg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mvvm/view/resources/great-britain-flag.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mvvm/view/resources/logo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mvvm/view/resources/logo.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mvvm/view/resources/serbian-flag.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mvvm/view/resources/slika.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/appsettings.json")]
 
 

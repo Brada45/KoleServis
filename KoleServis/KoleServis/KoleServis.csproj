@@ -6,14 +6,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>MVVM\View\Resources\logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="MVVM\View\Resources\behind_logo.jpeg" />
     <None Remove="MVVM\View\Resources\behind_logo.png" />
     <None Remove="MVVM\View\Resources\great-britain-flag.png" />
+    <None Remove="MVVM\View\Resources\logo.ico" />
     <None Remove="MVVM\View\Resources\logo.png" />
     <None Remove="MVVM\View\Resources\serbian-flag.png" />
+    <None Remove="MVVM\View\Resources\slika.png" />
     <None Remove="Resources\appsettings.json" />
   </ItemGroup>
 
@@ -24,10 +27,13 @@
     <Content Include="MVVM\View\Resources\great-britain-flag.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="MVVM\View\Resources\logo.png">
+    <Content Include="MVVM\View\Resources\logo.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="MVVM\View\Resources\serbian-flag.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MVVM\View\Resources\slika.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\appsettings.json">

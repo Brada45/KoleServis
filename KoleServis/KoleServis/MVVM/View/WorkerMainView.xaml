@@ -46,7 +46,7 @@
                     </Button>
 
                 </StackPanel>
-                <Image Source="Resources/logo.png" VerticalAlignment="Bottom"/>
+                <Image Source="Resources/slika.png" VerticalAlignment="Bottom"/>
             </Grid>
             <ContentControl Grid.Column="1" Content="{Binding Path=Navigation.CurrentViewMain}"/>
 

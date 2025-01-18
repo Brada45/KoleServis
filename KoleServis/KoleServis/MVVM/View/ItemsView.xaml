@@ -64,7 +64,7 @@
              Style="{StaticResource MaterialDesignOutlinedComboBox}" >
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding}" Foreground="{DynamicResource ListColor}"/>
+                                    <TextBlock Text="{Binding}" Background="{DynamicResource OverallBackground}" Foreground="{DynamicResource ButtonForegroundBrush}"/>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
@@ -126,7 +126,7 @@
                     <ComboBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Text="{DynamicResource Category}"  ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Width="140">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding}" Foreground="{DynamicResource ListColor}"/>
+                                <TextBlock Text="{Binding}" Background="{DynamicResource OverallBackground}" Foreground="{DynamicResource ListColor}"/>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>

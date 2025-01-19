@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\resources\\dictionary-srb.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\resources\\dictionary-srb.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|c:\\users\\ksrdj.srdjan\\onedrive\\desktop\\koleservis\\koleservis\\koleservis\\mvvm\\view\\createbillview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1A77931F-6A6F-4CE1-A457-2E0741AB505E}|KoleServis\\KoleServis.csproj|solutionrelative:koleservis\\mvvm\\view\\createbillview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -35,6 +39,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dictionary-srb.xaml",
+              "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Dictionary-srb.xaml",
+              "RelativeDocumentMoniker": "KoleServis\\Resources\\Dictionary-srb.xaml",
+              "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Dictionary-srb.xaml",
+              "RelativeToolTip": "KoleServis\\Resources\\Dictionary-srb.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-19T14:03:24.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CreateBillView.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\CreateBillView.xaml",
               "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\CreateBillView.xaml",
@@ -46,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Colors-orange-dic.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-orange-dic.xaml",
               "RelativeDocumentMoniker": "KoleServis\\Resources\\Colors\\Colors-orange-dic.xaml",
@@ -58,7 +74,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Colors-gray-dic.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-gray-dic.xaml",
               "RelativeDocumentMoniker": "KoleServis\\Resources\\Colors\\Colors-gray-dic.xaml",
@@ -69,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Colors-dark-dic.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\Resources\\Colors\\Colors-dark-dic.xaml",
               "RelativeDocumentMoniker": "KoleServis\\Resources\\Colors\\Colors-dark-dic.xaml",
@@ -80,15 +96,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ItemsView.xaml",
               "DocumentMoniker": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ItemsView.xaml",
               "RelativeDocumentMoniker": "KoleServis\\MVVM\\View\\ItemsView.xaml",
               "ToolTip": "C:\\Users\\ksrdj.SRDJAN\\OneDrive\\Desktop\\KoleServis\\KoleServis\\KoleServis\\MVVM\\View\\ItemsView.xaml",
               "RelativeToolTip": "KoleServis\\MVVM\\View\\ItemsView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-18T11:32:16.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T11:32:16.808Z"
             }
           ]
         }

@@ -54,7 +54,7 @@
     <System:String x:Key="Cancel">Odbij</System:String>
     <System:String x:Key="ActionPerformedSuccessfully">Akcija je uspjesno izvršena</System:String>
     <System:String x:Key="ActionPerformedunsuccessfully">Akcija nije uspjesno izvršena</System:String>
-    <System:String x:Key="DeleteItem">Obrisi</System:String>
+    <System:String x:Key="DeleteItem">Obriši</System:String>
     <System:String x:Key="BillNumber">Broj računa</System:String>
     <System:String x:Key="TotalPayment">Ukupno za naplatu</System:String>
     <System:String x:Key="Preview">Pogledaj fakturu</System:String>

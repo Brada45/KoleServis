@@ -20,12 +20,13 @@ DELETE FROM tip;
 insert into tip(id_tip,naziv) values (1,'radnik');
 insert into tip(id_tip,naziv) values (2,'menadzer');
 
-insert into jezik(id_jezik,naziv) values (1,'srpski');
-insert into jezik(id_jezik,naziv) values(2,'engleski');
+insert into jezik(id_jezik,naziv) values (1,'Srpski');
+insert into jezik(id_jezik,naziv) values(2,'English');
 
 insert into tema(id_tema,boja,font,italic,bold,velicina) values (1,'Orange','Arial',0,0,10);
 insert into tema(id_tema,boja,font,italic,bold,velicina) values (2,'Blue','Times New Roman',0,1,10);
 insert into tema(id_tema,boja,font,italic,bold,velicina) values (3,'Gray','Courier New',1,0,10);
+insert into tema(id_tema,boja,font,italic,bold,velicina) values (3,'Dark','Courier New',1,0,10);
 
 insert into osoba(`Korisnicko ime`,ime,prezime,sifra,Tip_id_tip,Tema_id_tema,Jezik_id_jezik,Obrisan) values ('KoleMenadzer','Dragan','Kostic','S29sZW1lbmFkemVy',2,1,1,0);
 insert into osoba(`Korisnicko ime`,ime,prezime,sifra,Tip_id_tip,Tema_id_tema,Jezik_id_jezik,Obrisan) values ('KoleMajstor','Dragan','Kostic','S29sZW1hanN0b3I=',1,1,1,0);
